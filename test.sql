@@ -12,7 +12,8 @@ create table board(
 	bid int primary key,
 	title varchar(50),
 	theme varchar(30),
-	content varchar(100)
+	content varchar(100),
+	wdate date default sysdate
 );
 
 create table reply(

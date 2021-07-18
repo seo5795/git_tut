@@ -1,5 +1,7 @@
 package com.seo.myapp.users;
 
-public class UsersService {
-
+public interface UsersService {
+	void insertUsers(UsersVO vo);
+	
+	UsersVO getUsers(UsersVO vo);
 }
