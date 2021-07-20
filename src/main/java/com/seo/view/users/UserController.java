@@ -4,12 +4,13 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.seo.myapp.users.UsersVO;
 import com.seo.myapp.users.impl.UsersDAO;
 
 @Controller
-public class LoginController {
+public class UserController {
 	@RequestMapping(value="/login.do")
 	public String login(UsersVO vo,UsersDAO dao,HttpSession session) {
 		System.out.println("로그인 컨트롤러");
@@ -22,6 +23,17 @@ public class LoginController {
 		else{
 			return "login.jsp";
 		}
-		
+	}
+	@RequestMapping(value="/insertUsers.do")
+	public ModelAndView insert(UsersVO vo,UsersDAO dao,ModelAndView mav) {
+		 System.out.println("회원가입 처리 컨트롤러");
+		 dao.insertUsers(vo);
+	      
+	      vo=dao.getUsers(vo);
+	      
+	      mav.addObject("v", vo);
+	      mav.setViewName("index.jsp");
+	      return mav;
+	
 	}
 }

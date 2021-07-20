@@ -1,11 +1,11 @@
 select *from all_all tables;
 
 create table users(
-	id varchar(20) primary key,
-	pw varchar(20),
-	name varchar(20),
-	role varchar(20),
-	mail varchar(30)
+	id varchar(30) primary key,
+	pw varchar(30),
+	name varchar(30),
+	role varchar(30),
+	mail varchar(100)
 );
 
 create table board(
