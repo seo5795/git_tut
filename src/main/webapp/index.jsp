@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>웹개발2</title>
+<title>index page</title>
 <link rel="icon" href="images/3.jpg">
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -22,12 +22,12 @@
     			var ans=document.getElementById('ans');
     			ans.innerHTML='<div id="ans"></div>';
     			if(!login.id.value){
-    				var txt=document.createTextNode('아이디를 입력해주세요!');
+    				var txt=document.createTextNode('enter your id!');
     				ans.appendChild(txt);
     				return false;
     			}
     			if(!login.pw.value){
-    				var txt=document.createTextNode('비밀번호를 입력해주세요!');
+    				var txt=document.createTextNode('enter yout password��!');
     				ans.appendChild(txt);
     				return false;
     			}
@@ -43,15 +43,15 @@
 		<!-- Header -->
 		<header id="header" class="alt">
 			<span class="logo"><img src="images/logo.svg" alt="" /></span>
-			<h1>웹개발2 마지막 실습</h1>
-			<p>실습중...</p>
+			<h1>Title</h1>
+			<p>Title..2</p>
 		</header>
 
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
 				<li><a href="insertBoard.jsp">Board</a></li>
-				<li><a href="#first">First Section</a></li>
+				<li><a href="getBoardList.do">BoardList</a></li>
 				<li><a href="#second">Second Section</a></li>
 				<li><a href="#cta">Get Started</a></li>
 			</ul>
@@ -65,7 +65,7 @@
 				<div class="spotlight">
 					<div class="content">
 						<header class="major">
-							<h2>로그인 작업</h2>
+							<h2>Login��</h2>
 						</header>
 						<form action="#" method="post" name="login">
 							<table>
@@ -78,7 +78,7 @@
 									<td><input type="password" id="pw"></td>
 								</tr>
 								<tr>
-									<td colspan="2"><input type="submit" value="로그인"></td>
+									<td colspan="2"><input type="submit" value="Login"></td>
 								</tr>
 							</table>
 						</form>
@@ -87,8 +87,8 @@
 						<br>
 
 						<ul class="actions">
-							<li><a href="#" class="button">회원가입</a></li>
-							<li><a href="generic.html" class="button">ID/PW 찾기</a></li>
+							<li><a href="#" class="button">Registration</a></li>
+							<li><a href="generic.html" class="button">Find ID/PW</a></li>
 						</ul>
 					</div>
 					<span class="image"><img src="images/pic01.jpg" alt="" /></span>

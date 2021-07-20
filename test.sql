@@ -21,7 +21,7 @@ create table reply(
 	rcontent varchar(100)
 );
 
-
+select * from board;
 
 drop table users;
 drop table board;

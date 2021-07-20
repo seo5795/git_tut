@@ -9,25 +9,23 @@ import org.springframework.web.servlet.mvc.Controller;
 import com.seo.myapp.board.BoardVO;
 import com.seo.myapp.board.impl.BoardDAO;
 
-public class InsertBoardController implements Controller {
+
+
+public class DeleteBoardController implements Controller {
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		System.out.println("insertController 수행중");
+		System.out.println("DeleteBoardController 실행중");
 
-		String title = req.getParameter("title");
-		String theme = req.getParameter("theme");
-		String content = req.getParameter("content");
+		String bid = req.getParameter("bid");
 
 		BoardVO vo = new BoardVO();
-		vo.setTitle(title);
-		vo.setTheme(theme);
-		vo.setContent(content);
+		vo.setBid(Integer.parseInt(bid));
 		BoardDAO dao = new BoardDAO();
-		dao.insertBoard(vo);
+		dao.deleteBoard(vo);
 
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("index.jsp");
+		mav.setViewName("getBoardList.do");
 		return mav;
 	}
 

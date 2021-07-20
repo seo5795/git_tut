@@ -19,9 +19,9 @@ public class BoardDAO {
 	private PreparedStatement pstmt=null;
 
 	public void insertBoard(BoardVO vo) {
-		String sql="insert into board (bid,title,theme,content) values((select nvl(max(id),0)+1 from board),?,?,?)";
+		String sql="insert into board (bid,title,theme,content) values((select nvl(max(bid),0)+1 from board),?,?,?)";
 
-		System.out.println("insertBoard() ¼öÇàÁß");
+		System.out.println("insertBoard() ìˆ˜í–‰ì¤‘");
 		conn=JDBC.getConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -39,7 +39,7 @@ public class BoardDAO {
 	
 	public void updateBoard(BoardVO vo) {
 		String sql="update board set title=?, content=?, theme=? where bid=?";
-		System.out.println("updateBoard() ¼öÇàÁß");
+		System.out.println("updateBoard() ìˆ˜í–‰ì¤‘");
 		conn=JDBC.getConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -58,7 +58,7 @@ public class BoardDAO {
 	
 	public void deleteBoard(BoardVO vo) {
 		String sql="delete board where bid=?";
-		System.out.println("deleteBoard() ¼öÇàÁß");
+		System.out.println("deleteBoard() ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		conn=JDBC.getConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -74,7 +74,7 @@ public class BoardDAO {
 	
 	public BoardVO getBoard(BoardVO vo) {
 		String sql="select * from board where bid=?";
-		System.out.println("getBoard() ¼öÇàÁß");
+		System.out.println("getBoard() ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		BoardVO data=null;
 		conn=JDBC.getConnection();
 		try {
@@ -99,8 +99,8 @@ public class BoardDAO {
 	}
 	
 	public List<BoardVO> getBoardList() {
-		String sql="select * from board order by id desc";
-		System.out.println("getBoardList() ¼öÇàÁß");
+		String sql="select * from board order by bid desc";
+		System.out.println("getBoardList() ì‹¤í–‰ì¤‘");
 		List<BoardVO> datas=new ArrayList();
 		conn=JDBC.getConnection();
 		try {

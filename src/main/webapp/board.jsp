@@ -1,7 +1,11 @@
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<title>ID/PW 찾기</title>
+<meta charset="UTF-8">
+
+<title>Board</title>
 <link rel="icon" href="images/3.jpg">
 <style>#ans{color:red;}</style>
 <script src="jquery-3.6.0.min.js"></script>
@@ -12,10 +16,8 @@
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
-<script>
-	
-</script>
 </head>
+
 <body class="is-preload">
 
 	<!-- Wrapper -->
@@ -23,8 +25,7 @@
 
 		<!-- Header -->
 		<header id="header">
-			<h1>Generic</h1>
-			<p>Ipsum dolor sit amet nullam</p>
+			<h1>Board</h1>
 		</header>
 
 		<!-- Main -->
@@ -32,32 +33,24 @@
 
 			<!-- Content -->
 			<section id="content" class="main">
-				<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
-				<h2>아이디입력시 비밀번호 출력</h2>
+				<div>
+				<ul>
+					<li>제목: ${ v.title }</li>
+					<li>
+						작성일 : <span>${ v.wdate }</span>
+					</li>
+					
+					<li>
+						<div class="editor_content">내용: ${ v.content }</div>
+					</li>
+				</ul>
 				<p>
-					<button onclick="history.go(-1)">뒤로가기</button>
-					<br>
-					<br> <span>ID입력</span><input type="text" id="id">
-					<button id="bt">비밀번호 찾기</button>
-					<br>
-				<div id="ans"></div></p>
+					<a href="getBoardList.do" >목록</a>&nbsp; &nbsp; &nbsp;
+					<a href="deleteBoard.do?bid=${v.bid }">삭제</a>
+				</p>
 
-				<h2>Tempus veroeros</h2>
-				<p>Cep risus aliquam gravida cep ut lacus amet. Adipiscing
-					faucibus nunc placerat. Tempus adipiscing turpis non blandit
-					accumsan eget lacinia nunc integer interdum amet aliquam ut orci
-					non col ut ut praesent. Semper amet interdum mi. Phasellus enim
-					laoreet ac ac commodo faucibus faucibus. Curae ante vestibulum
-					ante. Blandit. Ante accumsan nisi eu placerat gravida placerat
-					adipiscing in risus fusce vitae ac mi accumsan nunc in accumsan
-					tempor blandit aliquet aliquet lobortis. Ultricies blandit lobortis
-					praesent turpis. Adipiscing accumsan adipiscing adipiscing ac
-					lacinia cep. Orci blandit a iaculis adipiscing ac. Vivamus ornare
-					laoreet odio vis praesent nunc lorem mi. Erat. Tempus sem faucibus
-					ac id. Vis in blandit. Nascetur ultricies blandit ac. Arcu aliquam.
-					Accumsan mi eget adipiscing nulla. Non vestibulum ac interdum
-					condimentum semper commodo massa arcu.</p>
-			</section>
+			</div>
+
 
 		</div>
 

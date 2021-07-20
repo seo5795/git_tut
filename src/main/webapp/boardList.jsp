@@ -1,10 +1,15 @@
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
-<title>ID/PW 찾기</title>
-<link rel="icon" href="images/3.jpg">
-<style>#ans{color:red;}</style>
-<script src="jquery-3.6.0.min.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<head>
+<title>Elements - Stellar by HTML5 UP</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -12,9 +17,6 @@
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
-<script>
-	
-</script>
 </head>
 <body class="is-preload">
 
@@ -23,7 +25,7 @@
 
 		<!-- Header -->
 		<header id="header">
-			<h1>Generic</h1>
+			<h1>Elements</h1>
 			<p>Ipsum dolor sit amet nullam</p>
 		</header>
 
@@ -32,33 +34,45 @@
 
 			<!-- Content -->
 			<section id="content" class="main">
-				<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
-				<h2>아이디입력시 비밀번호 출력</h2>
-				<p>
-					<button onclick="history.go(-1)">뒤로가기</button>
-					<br>
-					<br> <span>ID입력</span><input type="text" id="id">
-					<button id="bt">비밀번호 찾기</button>
-					<br>
-				<div id="ans"></div></p>
 
-				<h2>Tempus veroeros</h2>
-				<p>Cep risus aliquam gravida cep ut lacus amet. Adipiscing
-					faucibus nunc placerat. Tempus adipiscing turpis non blandit
-					accumsan eget lacinia nunc integer interdum amet aliquam ut orci
-					non col ut ut praesent. Semper amet interdum mi. Phasellus enim
-					laoreet ac ac commodo faucibus faucibus. Curae ante vestibulum
-					ante. Blandit. Ante accumsan nisi eu placerat gravida placerat
-					adipiscing in risus fusce vitae ac mi accumsan nunc in accumsan
-					tempor blandit aliquet aliquet lobortis. Ultricies blandit lobortis
-					praesent turpis. Adipiscing accumsan adipiscing adipiscing ac
-					lacinia cep. Orci blandit a iaculis adipiscing ac. Vivamus ornare
-					laoreet odio vis praesent nunc lorem mi. Erat. Tempus sem faucibus
-					ac id. Vis in blandit. Nascetur ultricies blandit ac. Arcu aliquam.
-					Accumsan mi eget adipiscing nulla. Non vestibulum ac interdum
-					condimentum semper commodo massa arcu.</p>
-			</section>
 
+
+
+
+				<!-- Table -->
+				<section>
+					<h2>BoardList</h2>
+
+					<div class="table-wrapper">
+						<table>
+							<thead>
+								<tr>
+									<th>Number</th>
+									<th>Title</th>
+									<th>Date</th>
+								</tr>
+							</thead>
+							<tbody>
+							<c:forEach var="v" items="${boardList}">
+								<tr>
+									<td>${v.bid}</td>
+									<td><a href="getBoard.do?bid=${v.bid}">${v.title}</a></td>
+									<td>${v.wdate}</td>
+								</tr>
+								
+								</c:forEach>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="2"></td>
+									<td>100.00</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+
+
+				</section>
 		</div>
 
 		<!-- Footer -->
@@ -114,5 +128,6 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 
+</body>
 </body>
 </html>

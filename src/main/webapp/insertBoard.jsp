@@ -35,11 +35,11 @@
 										<form method="post" action="insertBoard.do">
 											<div class="row gtr-uniform">
 												<div class="col-12">
-													<input type="text" name="title" id="title" value="" placeholder="Title" />
+													<input type="text" name="title" placeholder="Title" />
 												</div>
 												
 												<div class="col-12">
-													<select name="demo-category" id="demo-category">
+													<select name="theme">
 														<option value="">- Category -</option>
 														<option value="talk">Talk</option>
 														<option value="debate">Debate</option>
@@ -49,7 +49,7 @@
 												</div>
 												
 												<div class="col-12">
-													<textarea name="content" id="content" placeholder="Enter your message" rows="6"></textarea>
+													<textarea name="content" placeholder="Enter your message" rows="6"></textarea>
 												</div>
 												<div class="col-12">
 													<ul class="actions">
