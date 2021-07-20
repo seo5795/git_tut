@@ -22,7 +22,10 @@ create table reply(
 );
 
 select * from board;
+select * from users;
 
 drop table users;
 drop table board;
 drop table reply;
+
+insert into users values('admin','1234','어드민','ADMIN','seo5795@naver.com');

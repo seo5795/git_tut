@@ -64,38 +64,6 @@
 				</div>
 
 
-
-				<form method="post" action="newReply.do">
-					<div class="row gtr-uniform">
-						<textarea name="rcon" cols="114" rows="2"
-							placeholder="답변을 입력해 주세요"></textarea>
-						<p class="btn_line txt_right">
-							<input type="submit" value="작성" class="btn_bbs"
-								style="border: none;">
-						</p>
-					</div>
-				</form>
-
-				<c:forEach var="r" items="${ v.rlist }">
-					<div class="reply_area">
-						<div class="reply_area__first">
-							<h4 class="reply_author">관리자</h4>
-							<div class="reply_time">${ r.day }</div>
-						</div>
-						<div class="reply_content">${ r.rcon }</div>
-
-						<!-- 만약 관리자라면, -->
-
-						<p>
-							<a href="./delReply.do?rid=${r.rid}&&qid=${v.qna.qid}">
-								<button type="button" class="btn_bbs" style="border: none;">댓글삭제</button>
-							</a>
-						</p>
-
-						<!--입력받은 댓글 id를 따라 삭제-->
-
-					</div>
-				</c:forEach>
 			</section>
 		</div>
 

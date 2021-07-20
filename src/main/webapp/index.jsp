@@ -52,7 +52,7 @@
 			<ul>
 				<li><a href="insertBoard.jsp">Board</a></li>
 				<li><a href="getBoardList.do">BoardList</a></li>
-				<li><a href="#second">Second Section</a></li>
+				<li><a href="login.jsp">Login</a></li>
 				<li><a href="#cta">Get Started</a></li>
 			</ul>
 		</nav>
@@ -60,40 +60,6 @@
 		<!-- Main -->
 		<div id="main">
 
-			<!-- Introduction -->
-			<section id="intro" class="main">
-				<div class="spotlight">
-					<div class="content">
-						<header class="major">
-							<h2>Login—…</h2>
-						</header>
-						<form action="#" method="post" name="login">
-							<table>
-								<tr>
-									<td>ID</td>
-									<td><input type="text" id="id"></td>
-								</tr>
-								<tr>
-									<td>PW</td>
-									<td><input type="password" id="pw"></td>
-								</tr>
-								<tr>
-									<td colspan="2"><input type="submit" value="Login"></td>
-								</tr>
-							</table>
-						</form>
-						<div id="ans"></div>
-						<br>
-						<br>
-
-						<ul class="actions">
-							<li><a href="#" class="button">Registration</a></li>
-							<li><a href="generic.html" class="button">Find ID/PW</a></li>
-						</ul>
-					</div>
-					<span class="image"><img src="images/pic01.jpg" alt="" /></span>
-				</div>
-			</section>
 
 			<!-- First Section -->
 			<section id="first" class="main special">

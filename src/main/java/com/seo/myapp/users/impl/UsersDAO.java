@@ -18,7 +18,7 @@ public class UsersDAO {
 	
 	public void insertUsers(UsersVO vo) {
 		String sql="insert into users (id,pw,name,role,mail) values(?,?,?,?,?)";
-		System.out.println("insertUsers() ¼öÇàÁß");
+		System.out.println("insertUsers() ìˆ˜í–‰ì¤‘");
 		conn=JDBC.getConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -37,8 +37,8 @@ public class UsersDAO {
 	}
 	
 	public UsersVO getUsers(UsersVO vo) {
-		String sql="select * from users where id=? and password=?";
-		System.out.println("getUsers() ¼öÇàÁß1");
+		String sql="select * from users where id=? and pw=?";
+		System.out.println("getUsers() ìˆ˜í–‰ì¤‘");
 		UsersVO data=null;
 		conn=JDBC.getConnection();
 		try {
@@ -52,6 +52,7 @@ public class UsersDAO {
 				data.setPw(rs.getString("pw"));
 				data.setName(rs.getString("name"));
 				data.setRole(rs.getString("role"));
+				data.setMail(rs.getString("mail"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -1,15 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<head>
-<title>Elements - Stellar by HTML5 UP</title>
+<title>index page</title>
+<link rel="icon" href="images/3.jpg">
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -17,6 +10,30 @@
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
+<style>
+#ans {
+	color: red;
+}
+</style>
+<script type="text/javascript">
+    	window.onload=function(){
+    		var login=document.login;
+    		login.onsubmit=function(){
+    			var ans=document.getElementById('ans');
+    			ans.innerHTML='<div id="ans"></div>';
+    			if(!login.id.value){
+    				var txt=document.createTextNode('enter your id!');
+    				ans.appendChild(txt);
+    				return false;
+    			}
+    			if(!login.pw.value){
+    				var txt=document.createTextNode('enter yout passwordš”!');
+    				ans.appendChild(txt);
+    				return false;
+    			}
+    		}
+    	}
+    </script>
 </head>
 <body class="is-preload">
 
@@ -24,51 +41,61 @@
 	<div id="wrapper">
 
 		<!-- Header -->
-		<header id="header">
-			<h1>Elements</h1>
-			<p>Ipsum dolor sit amet nullam</p>
+		<header id="header" class="alt">
+			<span class="logo"><img src="images/logo.svg" alt="" /></span>
+			<h1>Title</h1>
+			<p>Title..2</p>
 		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul>
+				<li><a href="insertBoard.jsp">Board</a></li>
+				<li><a href="getBoardList.do">BoardList</a></li>
+				<li><a href="login.jsp">Login</a></li>
+				<li><a href="#cta">Get Started</a></li>
+			</ul>
+		</nav>
 
 		<!-- Main -->
 		<div id="main">
 
-			<!-- Content -->
-			<section id="content" class="main">
-
-
-
-
-
-				<!-- Table -->
-				<section>
-					<h2>BoardList</h2>
-
-					<div class="table-wrapper">
-						<table>
-							<thead>
+			<!-- Introduction -->
+			<section id="intro" class="main">
+				<div class="spotlight">
+					<div class="content">
+						<header class="major">
+							<h2>Login—…</h2>
+						</header>
+						<form action="login.do" method="post">
+							<table>
 								<tr>
-									<th>Number</th>
-									<th>Title</th>
-									<th>Date</th>
+									<td>ID</td>
+									<td><input type="text" name="id"></td>
 								</tr>
-							</thead>
-							<tbody>
-							<c:forEach var="v" items="${boardList}">
 								<tr>
-									<td>${v.bid}</td>
-									<td><a href="getBoard.do?bid=${v.bid}">${v.title}</a></td>
-									<td>${v.wdate}</td>
+									<td>PW</td>
+									<td><input type="password" name="pw"></td>
 								</tr>
-								
-								</c:forEach>
-							</tbody>
-							
-						</table>
+								<tr>
+									<td colspan="2"><input type="submit"></td>
+								</tr>
+							</table>
+						</form>
+						<div id="ans"></div>
+						<br>
+						<br>
+
+						<ul class="actions">
+							<li><a href="#" class="button">Registration</a></li>
+							<li><a href="generic.html" class="button">Find ID/PW</a></li>
+						</ul>
 					</div>
+					<span class="image"><img src="images/pic01.jpg" alt="" /></span>
+				</div>
+			</section>
 
-
-				</section>
-		</div>
+			
 
 		<!-- Footer -->
 		<footer id="footer">
@@ -79,7 +106,7 @@
 					dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula
 					erat egestas velit, vitae tincidunt odio.</p>
 				<ul class="actions">
-					<li><a href="#" class="button">Learn More</a></li>
+					<li><a href="generic.html" class="button">Learn More</a></li>
 				</ul>
 			</section>
 			<section>
@@ -123,6 +150,5 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 
-</body>
 </body>
 </html>
