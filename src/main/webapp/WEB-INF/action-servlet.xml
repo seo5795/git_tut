@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-	<!-- HandlerMapping 등록 -->
+	<context:component-scan base-package="com.seo.myapp"></context:component-scan>
+	<!-- HandlerMapping 등록
 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>	
@@ -11,15 +14,20 @@
 				<prop key="/getBoardList.do">getBoardList</prop>
 				<prop key="/getBoard.do">getBoard</prop>
 				<prop key="/deleteBoard.do">deleteBoard</prop>
+				<prop key="/updateBoard.do">updateBoard</prop>
+				<prop key="/updateBoardPage.do">updateBoardPage</prop>
 			</props>
 		</property>
 	</bean>
 
-	<!-- Controller 목록 -->
+	 Controller 목록 
 	<bean id="insertBoard" class="com.seo.view.board.InsertBoardController" />
 	<bean id="getBoardList" class="com.seo.view.board.GetBoardListController" />
 	<bean id="getBoard" class="com.seo.view.board.GetBoardController" />
 	<bean id="deleteBoard" class="com.seo.view.board.DeleteBoardController" />
+	<bean id="updateBoard" class="com.seo.view.board.UpdateBoardController" />
+	<bean id="updateBoardPage" class="com.seo.view.board.UpdateBoardPageController" />
+	-->
 
 
 </beans>

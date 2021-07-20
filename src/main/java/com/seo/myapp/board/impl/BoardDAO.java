@@ -38,14 +38,13 @@ public class BoardDAO {
 	}
 	
 	public void updateBoard(BoardVO vo) {
-		String sql="update board set title=?, content=?, theme=? where bid=?";
+		String sql="update board set title=?, content=? where bid=?";
 		System.out.println("updateBoard() 수행중");
 		conn=JDBC.getConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getTitle());
 			pstmt.setString(2, vo.getContent());
-			pstmt.setString(2, vo.getTheme());
 			pstmt.setInt(3, vo.getBid());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {

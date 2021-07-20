@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,64 +37,35 @@
 
 			<!-- Content -->
 			<section id="content" class="main">
-				<div>
+				<form action="updateBoard.do" method="post">
+					<input type="hidden" value="${v.bid}" name="bid" />
+					<div>
 
-					<table border="1">
-						<tr>
-							<td bgcolor="lightblue">글 제목</td>
-							<td>${v.title}</td>
-						</tr>
-						<tr>
-							<td bgcolor="lightblue">작성일</td>
-							<td>${v.wdate}</td>
-						</tr>
+						<table border="1">
+							<tr>
+								<td bgcolor="lightblue">글 제목</td>
+								<td><input type="text" name="title" value="${v.title}"></td>
+							</tr>
+							<tr>
+								<td bgcolor="lightblue">작성일</td>
+								<td>${v.wdate}</td>
+							</tr>
 
-						<tr>
-							<td bgcolor="lightblue">상세 내용</td>
-							<td><input type="text" name="content" value="${v.content}"
-								disabled></td>
-						</tr>
-					</table>
-					<p>
-						<a href="getBoardList.do">목록</a>&nbsp; &nbsp; <a
-							href="updateBoardPage.do?bid=${v.bid }">수정하기</a>
-					</p>
-
-				</div>
-
-
-
-				<form method="post" action="newReply.do">
-					<div class="row gtr-uniform">
-						<textarea name="rcon" cols="114" rows="2"
-							placeholder="답변을 입력해 주세요"></textarea>
-						<p class="btn_line txt_right">
-							<input type="submit" value="작성" class="btn_bbs"
-								style="border: none;">
+							<tr>
+								<td bgcolor="lightblue">상세 내용</td>
+								<td><input type="text" name="content" value="${v.content}"></td>
+							</tr>
+							<tr>
+								<td colspan="2"><input type="submit" value="수정" /></td>
+							</tr>
+						</table>
+						<p>
+							<a href="getBoardList.do">목록</a>&nbsp; &nbsp; <a
+								href="deleteBoard.do?bid=${v.bid }">삭제</a>&nbsp;
 						</p>
+
 					</div>
 				</form>
-
-				<c:forEach var="r" items="${ v.rlist }">
-					<div class="reply_area">
-						<div class="reply_area__first">
-							<h4 class="reply_author">관리자</h4>
-							<div class="reply_time">${ r.day }</div>
-						</div>
-						<div class="reply_content">${ r.rcon }</div>
-
-						<!-- 만약 관리자라면, -->
-
-						<p>
-							<a href="./delReply.do?rid=${r.rid}&&qid=${v.qna.qid}">
-								<button type="button" class="btn_bbs" style="border: none;">댓글삭제</button>
-							</a>
-						</p>
-
-						<!--입력받은 댓글 id를 따라 삭제-->
-
-					</div>
-				</c:forEach>
 			</section>
 		</div>
 
