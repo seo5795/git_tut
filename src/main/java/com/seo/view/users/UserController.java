@@ -3,6 +3,7 @@ package com.seo.view.users;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,15 +26,20 @@ public class UserController {
 		}
 	}
 	@RequestMapping(value="/insertUsers.do")
-	public ModelAndView insert(UsersVO vo,UsersDAO dao,ModelAndView mav) {
+	public String insert(UsersVO vo,UsersDAO dao,Model m) {
 		 System.out.println("회원가입 처리 컨트롤러");
-		 dao.insertUsers(vo);
-	      
-	      vo=dao.getUsers(vo);
-	      
-	      mav.addObject("v", vo);
-	      mav.setViewName("index.jsp");
-	      return mav;
+		 dao.insertUsers(vo);   
+	     
+	      return "login.jsp";
 	
+	}
+	
+	@RequestMapping("logout.do")
+	public String logout(HttpSession session) {
+		System.out.println("로그아웃 컨트롤러");
+		
+		session.invalidate();
+		
+		return "login.jsp";
 	}
 }

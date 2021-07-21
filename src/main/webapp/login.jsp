@@ -87,7 +87,7 @@
 						<br>
 
 						<ul class="actions">
-							<li><a href="#" class="button">Registration</a></li>
+							<li><a href="insertUsers.jsp" class="button">Registration</a></li>
 							<li><a href="generic.html" class="button">Find ID/PW</a></li>
 						</ul>
 					</div>

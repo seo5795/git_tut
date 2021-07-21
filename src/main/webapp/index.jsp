@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -27,7 +30,7 @@
     				return false;
     			}
     			if(!login.pw.value){
-    				var txt=document.createTextNode('enter yout password��!');
+    				var txt=document.createTextNode('enter yout password!');
     				ans.appendChild(txt);
     				return false;
     			}
@@ -44,7 +47,14 @@
 		<header id="header" class="alt">
 			<span class="logo"><img src="images/logo.svg" alt="" /></span>
 			<h1>Title</h1>
-			<p>Title..2</p>
+			<c:choose>
+			<c:when test="${ userName == null }">
+				<p>Welcome!</p>
+			</c:when>
+			<c:otherwise>
+				<p>Welcome ${userName}!</p>
+			</c:otherwise>
+		</c:choose>
 		</header>
 
 		<!-- Nav -->
@@ -54,6 +64,7 @@
 				<li><a href="getBoardList.do">BoardList</a></li>
 				<li><a href="login.jsp">Login</a></li>
 				<li><a href="insertUsers.jsp">Registration</a></li>
+				<li><a href="logout.do">Logout</a></li><!-- 나중에 로그인했을때에만 보일수있도록 처리 -->
 			</ul>
 		</nav>
 
