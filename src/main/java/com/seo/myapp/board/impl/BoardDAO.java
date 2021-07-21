@@ -57,7 +57,7 @@ public class BoardDAO {
 	
 	public void deleteBoard(BoardVO vo) {
 		String sql="delete board where bid=?";
-		System.out.println("deleteBoard() ������");
+		System.out.println("deleteBoard() 수행중");
 		conn=JDBC.getConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -73,7 +73,7 @@ public class BoardDAO {
 	
 	public BoardVO getBoard(BoardVO vo) {
 		String sql="select * from board where bid=?";
-		System.out.println("getBoard() ������");
+		System.out.println("getBoard() 수행중");
 		BoardVO data=null;
 		conn=JDBC.getConnection();
 		try {
