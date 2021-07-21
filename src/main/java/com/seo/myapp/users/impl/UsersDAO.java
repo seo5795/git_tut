@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import org.springframework.stereotype.Repository;
 
 import com.seo.myapp.JDBC;
+import com.seo.myapp.board.BoardVO;
 import com.seo.myapp.users.UsersVO;
 
 @Repository("usersDAO")
@@ -62,4 +63,43 @@ public class UsersDAO {
 		}
 		return data;
 	}
+	
+	
+	public void updateUsers(UsersVO vo) {
+		String sql="update users set pw=?, name=?, mail? where id=?";
+		System.out.println("updateUsers() 수행중");
+		conn=JDBC.getConnection();
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, vo.getPw());
+			pstmt.setString(2, vo.getName());
+			pstmt.setString(3, vo.getMail());
+			pstmt.setString(4, vo.getName());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			JDBC.close(conn, pstmt);
+		}
+	}
+	
+	public void deleteUsers(UsersVO vo) {
+		String sql="delete users where id=?";
+		System.out.println();
+		conn=JDBC.getConnection();
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getId());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			JDBC.close(conn, pstmt);
+		}
+	}
+	
+	//updateMember(),deleteMember()
 }

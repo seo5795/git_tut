@@ -48,11 +48,11 @@
 			<span class="logo"><img src="images/logo.svg" alt="" /></span>
 			<h1>Title</h1>
 			<c:choose>
-			<c:when test="${ userName == null }">
+			<c:when test="${ vvv == null }">
 				<p>Welcome!</p>
 			</c:when>
 			<c:otherwise>
-				<p>Welcome ${userName}!</p>
+				<p>Welcome ${vvv.name}!</p>
 			</c:otherwise>
 		</c:choose>
 		</header>
@@ -65,6 +65,7 @@
 				<li><a href="login.jsp">Login</a></li>
 				<li><a href="insertUsers.jsp">Registration</a></li>
 				<li><a href="logout.do">Logout</a></li><!-- 나중에 로그인했을때에만 보일수있도록 처리 -->
+				<li><a href="mypage.do">My Page</a></li>
 			</ul>
 		</nav>
 

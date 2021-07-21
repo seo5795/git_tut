@@ -12,8 +12,6 @@
 
 		<context:component-scan base-package="com.seo.myapp" />
 	
-	<!-- <aop:aspectj-autoproxy></aop:aspectj-autoproxy>  -->
-	
 	<!-- DataSource -->
 	<bean class="org.apache.commons.dbcp.BasicDataSource" id="ds" destroy-method="close">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
