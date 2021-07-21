@@ -75,7 +75,7 @@ public class UsersDAO {
 			pstmt.setString(1, vo.getPw());
 			pstmt.setString(2, vo.getName());
 			pstmt.setString(3, vo.getMail());
-			pstmt.setString(4, vo.getName());
+			pstmt.setString(4, vo.getId());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
