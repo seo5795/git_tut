@@ -10,7 +10,7 @@ import com.seo.myapp.users.UsersVO;
 public class UsersServiceImpl implements UsersService{
 
 	@Autowired
-	private UsersDAO usersDAO;
+	private UsersDAO2 usersDAO;
 	
 	@Override
 	public void insertUsers(UsersVO vo) {
@@ -24,6 +24,18 @@ public class UsersServiceImpl implements UsersService{
 		return usersDAO.getUsers(vo);
 	}
 
+	@Override
+	public void updateUsers(UsersVO vo) {
+		// TODO Auto-generated method stub
+		usersDAO.updateUsers(vo);
+	}
+
+	@Override
+	public void deleteUsers(UsersVO vo) {
+		// TODO Auto-generated method stub
+		usersDAO.deleteUsers(vo);
+	}
 
 
+	
 }

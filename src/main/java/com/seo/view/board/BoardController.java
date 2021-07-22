@@ -2,53 +2,59 @@ package com.seo.view.board;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
+import com.seo.myapp.board.BoardService;
 import com.seo.myapp.board.BoardVO;
 import com.seo.myapp.board.impl.BoardDAO;
 
 @Controller
 public class BoardController {
+	
+	@Autowired
+	private BoardService boardService;
+	//비즈니스 컴포넌트, dao바꾸기 용이해짐
+	
 	@RequestMapping(value="/insertBoard.do")
-	public String insertBoard(BoardVO vo,BoardDAO dao) {
+	public String insertBoard(BoardVO vo) {
 		System.out.println("메시지 등록중....");	
-		dao.insertBoard(vo);		
+		boardService.insertBoard(vo);		
 		return "getBoardList.do";
 	}
 	
 	@RequestMapping("/updateBoard.do")
-	public String updateBoard(BoardVO vo,BoardDAO dao) {
+	public String updateBoard(BoardVO vo) {
 		System.out.println("updateBoardController 실행중");
-		dao.updateBoard(vo);	
+		boardService.updateBoard(vo);	
 		return "getBoardList.do";
 	}
 	
 	@RequestMapping("/deleteBoard.do")
-	public String deleteBoard(BoardVO vo,BoardDAO dao) {
+	public String deleteBoard(BoardVO vo) {
 		System.out.println("DeleteBoardController 실행중");
-		dao.deleteBoard(vo);
+		boardService.deleteBoard(vo);
 		
 		return "getBoardList.do";
 	}
 	
 	@RequestMapping("/getBoard.do")
-	public String getBoard(BoardVO vo,BoardDAO dao,Model m) {
+	public String getBoard(BoardVO vo,Model m) {
 		System.out.println("GetBoardController 수행중");
 
-		BoardVO v=dao.getBoard(vo);
+		BoardVO v=boardService.getBoard(vo);
 		m.addAttribute("v",v);
 	
 		return "board.jsp";
 	}
 	
 	@RequestMapping("/getBoardList.do")
-	public String getBoardList(BoardVO vo,BoardDAO dao,Model m) {
+	public String getBoardList(BoardVO vo,Model m) {
 		System.out.println("GetBoardListController 실행중");
 
-		List<BoardVO> boardList=dao.getBoardList(); // 추후에 검색기능을 추가해볼수있겠다!
+		List<BoardVO> boardList=boardService.getBoardList(); // 추후에 검색기능을 추가해볼수있겠다!
 	
 		m.addAttribute("boardList",boardList);
 		
@@ -56,9 +62,9 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/updateBoardPage.do")
-	public String updateBoardPage(BoardVO vo,BoardDAO dao,Model m) {
+	public String updateBoardPage(BoardVO vo,Model m) {
 		System.out.println("UpdateBoardPageController 수행중");
-		BoardVO v=dao.getBoard(vo);
+		BoardVO v=boardService.getBoard(vo);
 
 		m.addAttribute("v",v);
 		

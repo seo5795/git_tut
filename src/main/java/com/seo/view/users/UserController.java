@@ -2,20 +2,24 @@ package com.seo.view.users;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
+import com.seo.myapp.users.UsersService;
 import com.seo.myapp.users.UsersVO;
-import com.seo.myapp.users.impl.UsersDAO;
 
 @Controller
 public class UserController {
+	
+	@Autowired
+	private UsersService usersService;
+	//비즈니스 컴포넌트, dao바꾸기 용이해짐
+	
 	@RequestMapping(value="/login.do")
-	public String login(UsersVO vo,UsersDAO dao,HttpSession session) {
+	public String login(UsersVO vo,HttpSession session) {
 		System.out.println("로그인 컨트롤러");
-		UsersVO data=dao.getUsers(vo);
+		UsersVO data=usersService.getUsers(vo);
 		System.out.println("getUsers끝");
 		if(data!=null) {
 			session.setAttribute("vvv", data);
@@ -34,26 +38,26 @@ public class UserController {
 		return "login.jsp";
 	}
 	@RequestMapping("updateUsers.do")
-	public String update(UsersVO vo,UsersDAO dao) {
+	public String update(UsersVO vo) {
 		System.out.println("업데이트 users 컨트롤러");
 		
-		dao.updateUsers(vo);
+		usersService.updateUsers(vo);
 		System.out.println("업데이트 usersdao 완료");
 		return "logout.do";
 	}
 	@RequestMapping(value="/insertUsers.do")
-	public String insert(UsersVO vo,UsersDAO dao) {
+	public String insert(UsersVO vo) {
 		 System.out.println("회원가입 처리 컨트롤러");
-		 dao.insertUsers(vo);   
+		 usersService.insertUsers(vo);   
 	     
 	      return "login.jsp";
 	
 	}
 	@RequestMapping("deleteUsers.do")
-	public String delete(UsersVO vo,UsersDAO dao) {
+	public String delete(UsersVO vo) {
 		System.out.println("회원탈퇴 컨트롤러");
 		
-		dao.deleteUsers(vo);
+		usersService.deleteUsers(vo);
 		
 		return "login.jsp";
 	}
