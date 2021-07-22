@@ -35,14 +35,14 @@ public class UsersDAO2 {
 	
 	
 	public void updateUsers(UsersVO vo) {
-		String sql="update users set pw=?, name=?, mail? where id=?";
+		String sql="update users set name=?, pw=?, mail=? where id=?";
 		System.out.println("updateUsers() 수행중");
-		jdbcTemlplate.update(sql, vo.getPw(),vo.getName(),vo.getMail(),vo.getId());
+		jdbcTemlplate.update(sql, vo.getName(),vo.getPw(),vo.getMail(),vo.getId());
 		
 	}
 	
 	public void deleteUsers(UsersVO vo) {
-		String sql="delete users where id=?";
+		String sql="delete from users where id=?";
 		System.out.println("deleteUsers() 수행중");
 		jdbcTemlplate.update(sql, vo.getId());
 	}

@@ -65,7 +65,7 @@
 				<li><a href="login.jsp">Login</a></li>
 				<li><a href="insertUsers.jsp">Registration</a></li>
 				<li><a href="logout.do">Logout</a></li><!-- 나중에 로그인했을때에만 보일수있도록 처리 -->
-				<li><a href="mypage.do">My Page</a></li>
+				<li><a href="mypage.jsp">My Page</a></li>
 			</ul>
 		</nav>
 

@@ -32,34 +32,36 @@
 							<section id="content" class="main">
 
 								<!-- Form -->
+								
 									<section>
 										<h2>Form</h2>
 										<form method="post" action="updateUsers.do">
+										<input type="hidden" name="id" value="${vvv.id}">
 											<div class="row gtr-uniform">
 												<div class="col-12">
-													<input type="text" name="id" value="${v.id }" placeholder="Title" />
+													${vvv.id}
 												</div>
 												
 												<div class="col-12">
-													<input type="text" name="name" value="${v.name }" placeholder="Title" />
+													<input type="text" name="name" value="${vvv.name}"  />
 												</div>
 												<div class="col-12">
-													<input type="password" name="pw" value="${v.password}" placeholder="Title" />
+													<input type="password" name="pw" value="${vvv.pw}"/>
 												</div>
 												<div class="col-12">
-													<input type="password" name="mail" value="${v.mail}" placeholder="Title" />
+													<input type="text" name="mail" value="${vvv.mail}"  />
 												</div>
 												<div class="col-12">
-													<input type="password" name="role" value="${v.role}" placeholder="Title" />
+													${vvv.role}
 												</div>
 												<div class="col-12">
 													<ul class="actions">
-														<li><input type="submit" value="Send Message" class="primary" /></li>
+														<li><input type="submit" value="Update info" class="primary" /></li>
 													</ul>
 												</div>
 											</div>
 										</form>
-										<a href="deleteUsers.do?id='${v.id }'">delete users</a>
+										<a href="deleteUsers.do?id=${vvv.id}">delete users</a>
 									</section>
 
 							</section>

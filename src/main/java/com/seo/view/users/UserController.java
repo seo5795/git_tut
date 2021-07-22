@@ -38,8 +38,8 @@ public class UserController {
 		System.out.println("업데이트 users 컨트롤러");
 		
 		dao.updateUsers(vo);
-		
-		return "login.jsp";
+		System.out.println("업데이트 usersdao 완료");
+		return "logout.do";
 	}
 	@RequestMapping(value="/insertUsers.do")
 	public String insert(UsersVO vo,UsersDAO dao) {

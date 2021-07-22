@@ -66,14 +66,18 @@ public class UsersDAO {
 	
 	
 	public void updateUsers(UsersVO vo) {
-		String sql="update users set pw=?, name=?, mail? where id=?";
+		String sql="update users set name=?, pw=?, mail=? where id=?";
 		System.out.println("updateUsers() 수행중");
+		System.out.println(vo.getName());
+		System.out.println(vo.getMail());
+		System.out.println(vo.getPw());
+		System.out.println(vo.getId());
 		conn=JDBC.getConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			
-			pstmt.setString(1, vo.getPw());
-			pstmt.setString(2, vo.getName());
+			pstmt.setString(1, vo.getName());
+			pstmt.setString(2, vo.getPw());
 			pstmt.setString(3, vo.getMail());
 			pstmt.setString(4, vo.getId());
 			pstmt.executeUpdate();
@@ -87,7 +91,8 @@ public class UsersDAO {
 	
 	public void deleteUsers(UsersVO vo) {
 		String sql="delete users where id=?";
-		System.out.println();
+		System.out.println("deleteUsers() 수행중");
+		System.out.println(vo.getId());
 		conn=JDBC.getConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);

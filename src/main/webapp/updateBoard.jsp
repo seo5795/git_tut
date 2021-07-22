@@ -61,7 +61,7 @@
 						</table>
 						<p>
 							<a href="getBoardList.do">목록</a>&nbsp; &nbsp; <a
-								href="deleteBoard.do?bid=${v.bid }">삭제</a>&nbsp;
+								href="deleteBoard.do?bid=${v.bid}">삭제</a>&nbsp;
 						</p>
 
 					</div>
