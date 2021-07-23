@@ -8,6 +8,8 @@ public class BoardVO {
 	private String theme;
 	private String content;
 	private Date wdate;
+	private String search; // 검색기능수행시, 컨테이너가 Command객체를 생성,
+	private String searchContent; // 생성된 객체에 값추출-setter 자동으로 처리하는 것을 이용!
 	public int getBid() {
 		return bid;
 	}
@@ -37,6 +39,18 @@ public class BoardVO {
 	}
 	public void setWdate(Date wdate) {
 		this.wdate = wdate;
+	}
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
+	public String getSearchContent() {
+		return searchContent;
+	}
+	public void setSearchContent(String searchContent) {
+		this.searchContent = searchContent;
 	}
 	
 	

@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.seo.myapp.board.impl.BoardRowMapper;
 import com.seo.myapp.board.BoardVO;
 
 @Repository("boardDAO2")
@@ -44,11 +45,25 @@ public class BoardDAO2 {
 		return jdbcTemplate.queryForObject(sql, args,new BoardRowMapper());
 	}
 	
-	public List<BoardVO> getBoardList() {
-		String sql="select * from board order by bid desc";
-		System.out.println("getBoardList() 실행중");
-
-		return jdbcTemplate.query(sql, new BoardRowMapper());
+	public List<BoardVO> getBoardList(BoardVO vo) {
+		String sql="select * from board where title like '%'||?||'%' order by bid desc";
+		String sql2="select * from board where content like '%'||?||'%' order by bid desc";
+		String sql3="select * from board where theme like '%'||?||'%' order by bid desc";
+		System.out.println("getBoardList() 수행중2!");
+		System.out.println(vo.getSearchContent()+"=내용");
+		System.out.println(vo.getSearch());
+		
+		Object[] args= {vo.getSearchContent()};
+		if(vo.getSearch().equals("title")) {
+			return jdbcTemplate.query(sql, args, new BoardRowMapper());
+		}
+		else if(vo.getSearch().contentEquals("content")){
+			return jdbcTemplate.query(sql2, args, new BoardRowMapper());
+		}
+		else {
+			return jdbcTemplate.query(sql3, args, new BoardRowMapper());
+		}
+		
 	}
 }
 

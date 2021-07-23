@@ -1,6 +1,7 @@
-<%@ page language="java"  contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="custom"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +29,7 @@
 			<h1>Elements</h1>
 			<p>Ipsum dolor sit amet nullam</p>
 		</header>
-
+		<custom:head />
 		<!-- Main -->
 		<div id="main">
 
@@ -36,14 +37,29 @@
 			<section id="content" class="main">
 
 
-
-
-
 				<!-- Table -->
 				<section>
 					<h2>BoardList</h2>
+						<form action="getBoardList.do" method="post">
+							<table width="800">
+								<tr>
+									<td align="right">
+										<div class="col-6 col-12-xsmall">
+											<select name="search" >
+												<option value="title">제목</option>
+												<option value="theme">카테고리</option>
+												<option value="content">내용</option>
 
+											</select>
+										</div> 
+										<input type="text" name="searchContent"> <input
+										type="submit" value="검색하기">
+									</td>
+								</tr>
+							</table>
+						</form>
 					<div class="table-wrapper">
+						
 						<table>
 							<thead>
 								<tr>
@@ -53,65 +69,23 @@
 								</tr>
 							</thead>
 							<tbody>
-							<c:forEach var="v" items="${boardList}">
-								<tr>
-									<td>${v.bid}</td>
-									<td><a href="getBoard.do?bid=${v.bid}">${v.title}</a></td>
-									<td>${v.wdate}</td>
-								</tr>
-								
+								<c:forEach var="v" items="${boardList}">
+									<tr>
+										<td>${v.bid}</td>
+										<td><a href="getBoard.do?bid=${v.bid}">${v.title}</a></td>
+										<td>${v.theme}
+										<td>${v.wdate}</td>
+									</tr>
+
 								</c:forEach>
 							</tbody>
-							
 						</table>
 					</div>
-
-
+				</section>
 				</section>
 		</div>
 
-		<!-- Footer -->
-		<footer id="footer">
-			<section>
-				<h2>Aliquam sed mauris</h2>
-				<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat
-					consequat magna adipiscing tempus etiam dolore veroeros. eget
-					dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula
-					erat egestas velit, vitae tincidunt odio.</p>
-				<ul class="actions">
-					<li><a href="#" class="button">Learn More</a></li>
-				</ul>
-			</section>
-			<section>
-				<h2>Etiam feugiat</h2>
-				<dl class="alt">
-					<dt>Address</dt>
-					<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
-					<dt>Phone</dt>
-					<dd>(000) 000-0000 x 0000</dd>
-					<dt>Email</dt>
-					<dd>
-						<a href="#">information@untitled.tld</a>
-					</dd>
-				</dl>
-				<ul class="icons">
-					<li><a href="#" class="icon brands fa-twitter alt"><span
-							class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands fa-facebook-f alt"><span
-							class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram alt"><span
-							class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon brands fa-github alt"><span
-							class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon brands fa-dribbble alt"><span
-							class="label">Dribbble</span></a></li>
-				</ul>
-			</section>
-			<p class="copyright">
-				&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.
-			</p>
-		</footer>
-
+		<custom:footer />
 	</div>
 
 	<!-- Scripts -->

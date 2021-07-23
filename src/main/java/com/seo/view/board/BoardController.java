@@ -52,11 +52,18 @@ public class BoardController {
 	
 	@RequestMapping("/getBoardList.do")
 	public String getBoardList(BoardVO vo,Model m) {
-		System.out.println("GetBoardListController 실행중");
+		System.out.println("게시판 목록보기 컨트롤러+검색");
 
-		List<BoardVO> boardList=boardService.getBoardList(); // 추후에 검색기능을 추가해볼수있겠다!
-	
-		m.addAttribute("boardList",boardList);
+		if(vo.getSearch()==null) {
+			vo.setSearch("title");
+		}
+		if(vo.getSearchContent()==null) {
+			vo.setSearchContent("");
+		}
+
+		List<BoardVO> boardList=boardService.getBoardList(vo);
+		System.out.println("getBoardList 끝");
+		m.addAttribute("boardList", boardList);
 		
 		return "boardList.jsp";
 	}
