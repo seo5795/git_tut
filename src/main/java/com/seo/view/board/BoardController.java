@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.seo.myapp.board.BoardService;
 import com.seo.myapp.board.BoardVO;
-import com.seo.myapp.board.impl.BoardDAO;
 
 @Controller
 public class BoardController {

@@ -12,8 +12,8 @@ import com.seo.myapp.JDBC;
 import com.seo.myapp.reply.ReplyVO;
 
 
-@Repository("replyDAO")
-public class ReplyDAO {
+@Repository("replyDAO2")
+public class ReplyDAO2 {
 	private Connection conn=null;
 	private PreparedStatement pstmt=null;
 

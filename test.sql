@@ -18,7 +18,9 @@ create table board(
 
 create table reply(
 	pid int primary key,
-	rcontent varchar(100)
+	writer varchar(30),
+	rcontent varchar(100),
+	cnt int
 );
 
 select * from board;

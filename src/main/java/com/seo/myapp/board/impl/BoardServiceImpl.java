@@ -12,7 +12,7 @@ import com.seo.myapp.board.BoardVO;
 public class BoardServiceImpl implements BoardService{
 
 	@Autowired
-	private BoardDAO2 boardDAO;
+	private BoardDAO boardDAO;
 	
 	@Override
 	public void insertBoard(BoardVO vo) {
