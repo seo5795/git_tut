@@ -1,11 +1,14 @@
 package com.seo.view.board;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.seo.myapp.board.BoardService;
 import com.seo.myapp.board.BoardVO;
@@ -19,8 +22,15 @@ public class BoardController {
 	//비즈니스 컴포넌트, dao바꾸기 용이해짐
 	
 	@RequestMapping(value="/insertBoard.do")
-	public String insertBoard(BoardVO vo) {
-		System.out.println("메시지 등록중....");	
+	public String insertBoard(BoardVO vo) throws IOException {
+		System.out.println("insertBoardController 실행중");	
+		MultipartFile uploadFile=vo.getUploadFile();
+		if(!uploadFile.isEmpty()) {
+			String fileName=uploadFile.getOriginalFilename();
+			System.out.println(fileName);
+			uploadFile.transferTo(new File("C:\\0513seo\\resource\\testfile\\"+fileName));
+		
+		}
 		boardService.insertBoard(vo);		
 		return "getBoardList.do";
 	}

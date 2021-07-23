@@ -97,13 +97,22 @@ public class BoardDAO {
 		return data;
 	}
 	
-	public List<BoardVO> getBoardList() {
-		String sql="select * from board order by bid desc";
+	public List<BoardVO> getBoardList(BoardVO vo) {
+		String sql="select * from board where title like '%'||?||'%' order by bid desc";
+		String sql2="select * from board where content like '%'||?||'%' order by bid desc";
+		String sql3="select * from board where theme like '%'||?||'%' order by bid desc";
 		System.out.println("getBoardList() 실행중");
 		List<BoardVO> datas=new ArrayList();
 		conn=JDBC.getConnection();
-		try {
+		try {if(vo.getSearch().equals("title")) {
 			pstmt=conn.prepareStatement(sql);
+		}
+		else if(vo.getContent().equals("content")){
+			pstmt=conn.prepareStatement(sql2);
+		}else {
+			pstmt=conn.prepareStatement(sql3);
+		}
+			pstmt.setString(1, vo.getSearchContent());
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO data=new BoardVO();
