@@ -10,6 +10,7 @@ public class BoardVO {
 	private String theme;
 	private String content;
 	private Date wdate;
+	private String fileName; //파일경로
 	private String search; // 검색기능수행시, 컨테이너가 Command객체를 생성,
 	private String searchContent; // 생성된 객체에 값추출-setter 자동으로 처리하는 것을 이용!
 	private MultipartFile uploadFile;
@@ -62,6 +63,12 @@ public class BoardVO {
 	public void setUploadFile(MultipartFile uploadFile) {
 		this.uploadFile = uploadFile;
 	}
-	
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
 	
 }

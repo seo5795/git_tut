@@ -57,6 +57,8 @@
 								disabled></td>
 						</tr>
 					</table>
+					<img src="C:\0513seo\resource\testfile\shirt.jpg">
+					
 					<p>
 						<a href="getBoardList.do">목록</a>&nbsp; &nbsp; <a
 							href="updateBoardPage.do?bid=${v.bid }">수정하기</a>

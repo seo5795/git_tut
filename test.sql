@@ -13,6 +13,7 @@ create table board(
 	title varchar(50),
 	theme varchar(30),
 	content varchar(100),
+	fileName varchar(50),
 	wdate date default sysdate
 );
 

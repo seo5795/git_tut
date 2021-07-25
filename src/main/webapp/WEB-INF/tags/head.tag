@@ -6,7 +6,7 @@
 			<ul>
 				<li><a href="insertBoard.jsp">Board</a></li>
 				<li><a href="getBoardList.do">BoardList</a></li>
-				<li><a href="login.jsp">Login</a></li>
+				<li><a href="login.do">Login</a></li>
 				<li><a href="insertUsers.jsp">Registration</a></li>
 			</ul>
 		</nav>

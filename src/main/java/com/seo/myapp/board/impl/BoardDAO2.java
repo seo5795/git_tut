@@ -19,27 +19,27 @@ public class BoardDAO2 {
 	private JdbcTemplate jdbcTemplate;
 
 	public void insertBoard(BoardVO vo) {
-		String sql="insert into board (bid,title,theme,content) values((select nvl(max(bid),0)+1 from board),?,?,?)";
+		String sql="insert into board (bid,title,theme,content,fileName) values((select nvl(max(bid),0)+1 from board),?,?,?,?)";
 
-		System.out.println("insertBoard() 수행중");
-		jdbcTemplate.update(sql,vo.getTitle(),vo.getTheme(),vo.getContent());
+		System.out.println("insertBoard() 수행중2");
+		jdbcTemplate.update(sql,vo.getTitle(),vo.getTheme(),vo.getContent(),vo.getFileName());
 	}
 	
 	public void updateBoard(BoardVO vo) {
 		String sql="update board set title=?, content=? where bid=?";
-		System.out.println("updateBoard() 수행중");
+		System.out.println("updateBoard() 수행중2");
 		jdbcTemplate.update(sql, vo.getTitle(),vo.getContent(),vo.getBid());
 	}
 	
 	public void deleteBoard(BoardVO vo) {
 		String sql="delete board where bid=?";
-		System.out.println("deleteBoard() 수행중");
+		System.out.println("deleteBoard() 수행중2");
 		jdbcTemplate.update(sql, vo.getBid());
 	}
 	
 	public BoardVO getBoard(BoardVO vo) {
 		String sql="select * from board where bid=?";
-		System.out.println("getBoard() 수행중");
+		System.out.println("getBoard() 수행중2");
 		BoardVO data=null;
 		Object[] args= {vo.getBid()};
 		return jdbcTemplate.queryForObject(sql, args,new BoardRowMapper());
@@ -78,6 +78,7 @@ class BoardRowMapper implements RowMapper{
 		data.setTitle(rs.getString("title"));
 		data.setWdate(rs.getDate("wdate"));
 		data.setTheme(rs.getString("theme"));
+		data.setFileName(rs.getString("fileName"));
 		return data;
 	}
 

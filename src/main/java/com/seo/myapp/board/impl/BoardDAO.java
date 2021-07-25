@@ -19,7 +19,7 @@ public class BoardDAO {
 	private PreparedStatement pstmt=null;
 
 	public void insertBoard(BoardVO vo) {
-		String sql="insert into board (bid,title,theme,content) values((select nvl(max(bid),0)+1 from board),?,?,?)";
+		String sql="insert into board (bid,title,theme,content,fileName) values((select nvl(max(bid),0)+1 from board),?,?,?,?)";
 
 		System.out.println("insertBoard() 수행중");
 		conn=JDBC.getConnection();
@@ -28,6 +28,7 @@ public class BoardDAO {
 			pstmt.setString(1, vo.getTitle());
 			pstmt.setString(2, vo.getTheme());
 			pstmt.setString(3, vo.getContent());
+			pstmt.setString(4, vo.getFileName());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -87,6 +88,7 @@ public class BoardDAO {
 				data.setTitle(rs.getString("title"));
 				data.setWdate(rs.getDate("wdate"));
 				data.setTheme(rs.getString("theme"));
+				data.setFileName(rs.getString("fileName"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -121,6 +123,7 @@ public class BoardDAO {
 				data.setTitle(rs.getString("title"));
 				data.setWdate(rs.getDate("wdate"));
 				data.setTheme(rs.getString("theme"));
+				data.setFileName(rs.getString("fileName"));
 				datas.add(data);
 			}
 		} catch (SQLException e) {

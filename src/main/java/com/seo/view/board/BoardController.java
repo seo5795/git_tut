@@ -27,8 +27,8 @@ public class BoardController {
 		if(!uploadFile.isEmpty()) {
 			String fileName=uploadFile.getOriginalFilename();
 			System.out.println(fileName);
-			uploadFile.transferTo(new File("C:\\0513seo\\resource\\testfile\\"+fileName));
-		
+			uploadFile.transferTo(new File("/images/"+fileName));
+			vo.setFileName(fileName);
 		}
 		boardService.insertBoard(vo);		
 		return "getBoardList.do";
