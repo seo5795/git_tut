@@ -57,7 +57,7 @@
 								disabled></td>
 						</tr>
 					</table>
-					<img src="C:\0513seo\resource\testfile\shirt.jpg">
+					<img src="C:/0513seo/resource/testfile/${v.fileName }">
 					
 					<p>
 						<a href="getBoardList.do">목록</a>&nbsp; &nbsp; <a

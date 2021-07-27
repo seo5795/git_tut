@@ -48,7 +48,9 @@
 			<!-- First Section -->
 			<section id="first" class="main special">
 				<header class="major">
-					<h2>Magna veroeros</h2>
+					<h2><a href="dataTransform.do">데이터 변환 작업</a></h2>
+				
+				<hr>
 				</header>
 				<ul class="features">
 					<li><span class="icon solid major style1 fa-code"></span>

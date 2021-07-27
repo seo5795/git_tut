@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.seo.myapp.board.BoardService;
@@ -20,6 +21,17 @@ public class BoardController {
 	private BoardService boardService;
 	//비즈니스 컴포넌트, dao바꾸기 용이해짐
 	
+	
+	@RequestMapping(value="/dataTransform.do")
+	@ResponseBody
+	public List<BoardVO> dataTransform(BoardVO vo) {
+		
+		vo.setSearch("title");
+		vo.setSearchContent("");
+		List<BoardVO> datas=boardService.getBoardList(vo);
+				return datas;
+	}//어노테이션 json
+	
 	@RequestMapping(value="/insertBoard.do")
 	public String insertBoard(BoardVO vo) throws IOException {
 		System.out.println("insertBoardController 실행중");	
@@ -27,7 +39,7 @@ public class BoardController {
 		if(!uploadFile.isEmpty()) {
 			String fileName=uploadFile.getOriginalFilename();
 			System.out.println(fileName);
-			uploadFile.transferTo(new File("/images/"+fileName));
+			uploadFile.transferTo(new File("C:\\0513seo\\resource\\testfile\\"+fileName));
 			vo.setFileName(fileName);
 		}
 		boardService.insertBoard(vo);		

@@ -9,6 +9,9 @@
 
 	<context:component-scan
 		base-package="com.seo.view"></context:component-scan>
+		
+		<!-- 변환기 생성 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
 	
 	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
