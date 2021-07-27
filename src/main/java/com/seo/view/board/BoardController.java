@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.seo.myapp.board.BoardListVO;
 import com.seo.myapp.board.BoardService;
 import com.seo.myapp.board.BoardVO;
 
@@ -22,15 +23,25 @@ public class BoardController {
 	//비즈니스 컴포넌트, dao바꾸기 용이해짐
 	
 	
+//	@RequestMapping(value="/dataTransform.do")
+//	@ResponseBody
+//	public List<BoardVO> dataTransform(BoardVO vo) {
+//		
+//		vo.setSearch("title");
+//		vo.setSearchContent("");
+//		List<BoardVO> datas=boardService.getBoardList(vo);
+//				return datas;
+//	}//어노테이션 json
+	
 	@RequestMapping(value="/dataTransform.do")
 	@ResponseBody
 	public List<BoardVO> dataTransform(BoardVO vo) {
-		
 		vo.setSearch("title");
 		vo.setSearchContent("");
 		List<BoardVO> datas=boardService.getBoardList(vo);
+		BoardListVO blVO=new BoardListVO();
 				return datas;
-	}//어노테이션 json
+	}//xml 데이터 변환
 	
 	@RequestMapping(value="/insertBoard.do")
 	public String insertBoard(BoardVO vo) throws IOException {
