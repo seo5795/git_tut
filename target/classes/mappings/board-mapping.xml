@@ -13,7 +13,7 @@
 	</select>
 
 	<insert id="insertBoard" parameterType="board">
-		insert into board (bid,title,theme,content,fileName) values((select nvl(max(id),0)+1 from board),#{title},#{theme},#{content},#{fileName})
+		insert into board (bid,title,theme,content,fileName) values((select nvl(max(bid),0)+1 from board),#{title},#{theme},#{content},#{fileName})
 	</insert>
 
 	<update id="updateBoard" parameterType="board">

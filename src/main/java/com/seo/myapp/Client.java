@@ -22,6 +22,7 @@ public class Client {
 		vo.setTitle("파이리");
 		vo.setTheme("이상해씨");
 		vo.setContent("내용내용");
+		vo.setFileName("123");
 		boardDAO.insertBoard(vo);
 		
 		vo.setSearch("TITLE");
