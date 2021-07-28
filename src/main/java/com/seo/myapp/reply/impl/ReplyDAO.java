@@ -4,7 +4,10 @@ package com.seo.myapp.reply.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
@@ -36,7 +39,7 @@ public class ReplyDAO {
 	}
 	
 	public void updateReply(ReplyVO vo) {
-		String sql="update reply set content=? cnt=? where pid=?";
+		String sql="update reply set rcontent=? cnt=? where pid=?";
 		System.out.println("updateReply() 수행중");
 		conn=JDBC.getConnection();
 		try {
@@ -55,7 +58,7 @@ public class ReplyDAO {
 	}
 	
 	public void deleteReply(ReplyVO vo) {
-		String sql="delete board where Pid=?";
+		String sql="delete board where pid=?";
 		System.out.println("deleteReply() 수행중");
 		conn=JDBC.getConnection();
 		try {
@@ -70,5 +73,30 @@ public class ReplyDAO {
 		}
 	}
 
+	public List<ReplyVO> getReplyList(ReplyVO vo) {
+		String sql="select * from reply order by pid desc";
 	
+		System.out.println("getReplyist() 실행중");
+		List<ReplyVO> datas=new ArrayList();
+		conn=JDBC.getConnection();
+		try { 
+			pstmt=conn.prepareStatement(sql);
+		
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				ReplyVO data=new ReplyVO();
+				data.setPid(rs.getInt("pid"));
+				data.setWriter(rs.getString("writre"));
+				data.setRcontent(rs.getString("rcontent"));
+				data.setCnt(rs.getInt("cnt"));
+				datas.add(data);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			JDBC.close(conn, pstmt);
+		}
+		return datas;
+	}
 }

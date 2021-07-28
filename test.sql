@@ -31,4 +31,5 @@ drop table users;
 drop table board;
 drop table reply;
 
+insert into BOARD values(1,'12','talk','123','bag','2021-7-28');
 insert into users values('admin','1234','어드민','ADMIN','seo5795@naver.com');

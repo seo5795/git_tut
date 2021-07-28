@@ -2,27 +2,35 @@ package com.seo.myapp;
 
 import java.util.List;
 
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.GenericXmlApplicationContext;
-
-import com.seo.myapp.board.BoardService;
 import com.seo.myapp.board.BoardVO;
+import com.seo.myapp.board.impl.BoardDAO;
 
 
 
 public class Client {
 	public static void main(String[] args) {
-		AbstractApplicationContext factory=new GenericXmlApplicationContext("applicationContext.xml");
-		
-				
-		BoardService bs=(BoardService)factory.getBean("BoardService");
+		BoardDAO boardDAO=new BoardDAO();
 		BoardVO vo=new BoardVO();
-		vo.setTitle("title");
-		vo.setTheme("talk");
-		vo.setContent("Content");
-		bs.insertBoard(vo);
+		vo.setBid(1);
+		vo=boardDAO.getBoard(vo);
 		
-		factory.close();
+		System.out.println(vo);
+		System.out.println(vo.getTheme());
+		
+		boardDAO.deleteBoard(vo);
+		
+		vo.setTitle("파이리");
+		vo.setTheme("이상해씨");
+		vo.setContent("내용내용");
+		boardDAO.insertBoard(vo);
+		
+		vo.setSearch("TITLE");
+		vo.setSearchContent("a");
+		List<BoardVO> datas=boardDAO.getBoardList(vo);
+		System.out.println("==검색 결과 목록==");
+		for(BoardVO data:datas) {
+			System.out.println(data);
+		}
 	}
 }
 
