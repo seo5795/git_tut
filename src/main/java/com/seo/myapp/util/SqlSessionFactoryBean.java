@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class SqlSessionFactoryBean {
+public class SqlSessionFactoryBean {//SqlSession(DAO에 적용)를 SqlSessionFactory가 생성함
 	private static SqlSessionFactory sessionFactory=null;
 	static {
 		if(sessionFactory==null) {
