@@ -2,6 +2,7 @@ package com.seo.view.board;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +51,7 @@ public class BoardController {
 		if(!uploadFile.isEmpty()) {
 			String fileName=uploadFile.getOriginalFilename();
 			System.out.println(fileName);
-			uploadFile.transferTo(new File("C:\\0513seo\\resource\\testfile\\"+fileName));
+			uploadFile.transferTo(new File("C:\\0513seo\\workspace2\\test\\src\\main\\webapp\\images\\"+fileName));
 			vo.setFileName(fileName);
 		}
 		boardService.insertBoard(vo);		
@@ -77,7 +78,16 @@ public class BoardController {
 		System.out.println("GetBoardController 수행중");
 
 		BoardVO v=boardService.getBoard(vo);
+		File file=new File("C:\\0513seo\\workspace2\\test\\src\\main\\webapp\\images\\"+v.getFileName());
+		byte[] fileContent =null;
+		try {
+			fileContent = Files.readAllBytes(file.toPath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		m.addAttribute("v",v);
+		m.addAttribute("seo", fileContent);
 	
 		return "board.jsp";
 	}

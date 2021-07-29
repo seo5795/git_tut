@@ -6,7 +6,7 @@
 
 	<select id="getBoard" resultType="board" parameterType="board">
 	<!-- resultset을 자동매핑 하기위해 resultType이용 -->
-	<!-- parameter타입은 기본적으로vo 설정, 생략가능하다 but resultType은 생략 x -->
+	<!-- parameter타입은 인자를 받기위해, 기본적으로vo 설정, 생략가능하다 but resultType은 생략 x -->
 		select * from board where bid=#{bid}
 	</select>
 

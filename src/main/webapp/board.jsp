@@ -57,7 +57,7 @@
 								disabled></td>
 						</tr>
 					</table>
-					<img src="C:/0513seo/resource/testfile/${v.fileName }">
+					<a href="#"><img src="${seo}" alt="파일업로드"></a>
 					
 					<p>
 						<a href="getBoardList.do">목록</a>&nbsp; &nbsp; <a
