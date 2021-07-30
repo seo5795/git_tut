@@ -11,7 +11,17 @@
 	</select>
 
 	<select id="getBoardList" resultType="board" parameterType="board">
-		select * from board where title like '%'||#{searchContent}||'%' order by bid desc
+		select * from board where 1=1
+		<if test="search=='title'">
+			and title like '%'||#{searchContent}||'%'
+		</if>
+		<if test="search=='content'">
+			and content like '%'||#{searchContent}||'%'
+		</if>
+		<if test="search=='theme'">
+			and theme like '%'||#{searchContent}||'%'
+		</if>
+		order by id desc
 	</select>
 
 	<insert id="insertBoard" parameterType="board">

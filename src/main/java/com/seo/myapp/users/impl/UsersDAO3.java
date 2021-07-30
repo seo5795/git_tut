@@ -1,26 +1,21 @@
 package com.seo.myapp.users.impl;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.seo.myapp.JDBC;
 import com.seo.myapp.users.UsersVO;
-import com.seo.myapp.util.SqlSessionFactoryBean;
+
 
 @Repository("usersDAO3")
 public class UsersDAO3 {
 	
-	private SqlSession mybatis;
+	private SqlSessionTemplate mybatis;
 	
-	public UsersDAO3(){
-		mybatis=SqlSessionFactoryBean.getSqlSessionInstace();
-	}
+	
 	public void insertUsers(UsersVO vo) {
 		mybatis.insert("UsersDAO.insersUsers", vo);
-		mybatis.commit();
+		
 	}
 	
 	public UsersVO getUsers(UsersVO vo) {
@@ -30,7 +25,7 @@ public class UsersDAO3 {
 	
 	public void updateUsers(UsersVO vo) {
 		mybatis.update("UsersDAO.updateUSers", vo);
-		mybatis.commit();
+		
 	}
 	
 	public void deleteUsers(UsersVO vo) {
