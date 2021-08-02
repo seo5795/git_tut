@@ -21,7 +21,7 @@
 		<if test="search=='theme'">
 			and theme like '%'||#{searchContent}||'%'
 		</if>
-		order by id desc
+		order by bid desc
 	</select>
 
 	<insert id="insertBoard" parameterType="board">
