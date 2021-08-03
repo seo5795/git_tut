@@ -2,6 +2,12 @@ package com.seo.myapp.board;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -12,13 +18,17 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @XmlAccessorType(XmlAccessType.FIELD) // 부모-자식 엘리먼트를 만듬
-
+@Entity
+@Table(name="BOARD") // 테이블명과 클래스명이 불일치하면 반드시 설정해주어야함!
 public class BoardVO {
 	@XmlAttribute // 엘리먼트를 구분할 수 있게하는 속성으로 설정
+	@Id
+	@GeneratedValue
 	private int bid;
 	private String title;
 	private String theme;
 	private String content;
+	@Temporal(TemporalType.DATE)
 	private Date wdate;
 	private String fileName; 
 	@XmlTransient // @JsonIgnore의 역할
