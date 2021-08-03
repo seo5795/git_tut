@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @XmlAccessorType(XmlAccessType.FIELD) // 부모-자식 엘리먼트를 만듬
+
 public class BoardVO {
 	@XmlAttribute // 엘리먼트를 구분할 수 있게하는 속성으로 설정
 	private int bid;

@@ -68,6 +68,8 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.2.4</version>
 		</dependency>
+		
+		
 
       
    <!-- JdbcDaoSupport를 상속받아 만들어지지않아 추가함 -->

@@ -16,8 +16,8 @@
 	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
-				<prop key="java.lang.NullPointerException">
-					login.jsp
+				<prop key="java.lang.NullPointerException"><!-- 로그인시 null값을 받는다면 index -->
+					index.jsp
 				</prop>
 			</props>
 		</property>
