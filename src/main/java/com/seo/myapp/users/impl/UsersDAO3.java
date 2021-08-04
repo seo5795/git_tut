@@ -25,7 +25,9 @@ public class UsersDAO3 {
 		em.remove(vo);
 	}
 	public UsersVO getUsers(UsersVO vo) {
-		return (UsersVO)em.find(UsersVO.class, vo.getId());			
+		String jpql = "select u from Users u where u.id=:id and u.pw=:pw";
+		
+		return (UsersVO)em.createQuery("select u from Users u where u.id and u.pw").getResultList();
 	}
 
 }

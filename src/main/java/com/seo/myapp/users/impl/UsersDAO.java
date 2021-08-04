@@ -1,20 +1,21 @@
 package com.seo.myapp.users.impl;
 
-import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.seo.myapp.users.UsersVO;
 
 
-@Repository("usersDAO")
+@Repository
 public class UsersDAO {
-	
+	@Autowired
 	private SqlSessionTemplate mybatis;
 	
 	
 	public void insertUsers(UsersVO vo) {
-		mybatis.insert("UsersDAO.insersUsers", vo);
+		System.out.println("insertUsers DAO 실행중");
+		mybatis.insert("UsersDAO.insertUsers", vo);
 		
 	}
 	

@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="BOARD")
+@Table(name="USERS")
 public class UsersVO {
 	@Id
 	@GeneratedValue
