@@ -23,11 +23,6 @@
 	<!-- Wrapper -->
 	<div id="wrapper">
 
-		<!-- Header -->
-		<header id="header">
-			<h1>Elements</h1>
-			<p>Ipsum dolor sit amet nullam</p>
-		</header>
 		<custom:head />
 		<!-- Main -->
 		<div id="main">

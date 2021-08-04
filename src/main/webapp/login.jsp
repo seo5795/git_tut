@@ -45,19 +45,6 @@
 	<!-- Wrapper -->
 	<div id="wrapper">
 
-		<!-- Header -->
-		<header id="header" class="alt">
-			<span class="logo"><img src="images/logo.svg" alt="" /></span>
-			<h1>환영합니다</h1>
-			<c:choose>
-			<c:when test="${ vvv == null }">
-				<p>Welcome!</p>
-			</c:when>
-			<c:otherwise>
-				<p>Welcome ${vvv.name}!</p>
-			</c:otherwise>
-		</c:choose>
-		</header>
 
 		<custom:head />
 

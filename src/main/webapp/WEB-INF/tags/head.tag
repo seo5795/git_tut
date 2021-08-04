@@ -1,5 +1,19 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!-- Header -->
+		<header id="header" class="alt">
+			<span class="logo"><img src="images/logo.svg" alt="" /></span>
+			<h1>Title</h1>
+			<c:choose>
+			<c:when test="${ vvv == null }">
+				<p>Welcome!</p>
+			</c:when>
+			<c:otherwise>
+				<p>Welcome ${vvv.name}!</p>
+			</c:otherwise>
+		</c:choose>
+		</header>
 <c:if test="${vvv.id ==null}"><!-- 만약 작성자라면, -->
 	<!-- Nav -->
 		<nav id="nav">

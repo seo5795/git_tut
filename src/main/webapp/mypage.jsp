@@ -20,11 +20,7 @@
 		<!-- Wrapper -->
 			<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<h1>My page</h1>
-						<p>Ipsum dolor sit amet nullam</p>
-					</header>
+		
 				<custom:head/>
 				<!-- Main -->
 					<div id="main">

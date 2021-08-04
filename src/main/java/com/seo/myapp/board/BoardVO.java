@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -17,11 +18,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@XmlAccessorType(XmlAccessType.FIELD) // 부모-자식 엘리먼트를 만듬
+//@XmlAccessorType(XmlAccessType.FIELD) // 부모-자식 엘리먼트를 만듬
 @Entity
 @Table(name="BOARD") // 테이블명과 클래스명이 불일치하면 반드시 설정해주어야함!
 public class BoardVO {
-	@XmlAttribute // 엘리먼트를 구분할 수 있게하는 속성으로 설정
+	//@XmlAttribute // 엘리먼트를 구분할 수 있게하는 속성으로 설정
 	@Id
 	@GeneratedValue
 	private int bid;
@@ -31,11 +32,14 @@ public class BoardVO {
 	@Temporal(TemporalType.DATE)
 	private Date wdate;
 	private String fileName; 
-	@XmlTransient // @JsonIgnore의 역할
+	//@XmlTransient // @JsonIgnore의 역할
+	@Transient // @JSONIgnore의 역할
 	private String search; // 검색기능수행시, 컨테이너가 Command객체를 생성,
-	@XmlTransient 
+	//@XmlTransient 
+	@Transient 
 	private String searchContent; // 생성된 객체에 값추출-setter 자동으로 처리하는 것을 이용!
-	@XmlTransient 
+	//@XmlTransient 
+	@Transient 
 	private MultipartFile uploadFile;
 	
 	public int getBid() {

@@ -27,11 +27,6 @@
 
 	<!-- Wrapper -->
 	<div id="wrapper">
-
-		<!-- Header -->
-		<header id="header">
-			<h1>Board</h1>
-		</header>
 		<custom:head />
 		<!-- Main -->
 		<div id="main">
