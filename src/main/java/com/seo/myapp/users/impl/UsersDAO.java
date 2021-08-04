@@ -1,109 +1,36 @@
 package com.seo.myapp.users.impl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.seo.myapp.JDBC;
-import com.seo.myapp.board.BoardVO;
 import com.seo.myapp.users.UsersVO;
+
 
 @Repository("usersDAO")
 public class UsersDAO {
 	
-	private Connection conn=null;
-	private PreparedStatement pstmt=null;
+	private SqlSessionTemplate mybatis;
+	
 	
 	public void insertUsers(UsersVO vo) {
-		String sql="insert into users (id,pw,name,role,mail) values(?,?,?,?,?)";
-		System.out.println("insertUsers() 수행중");
-		conn=JDBC.getConnection();
-		try {
-			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getId());
-			pstmt.setString(2, vo.getPw());
-			pstmt.setString(3, vo.getName());
-			pstmt.setString(4, vo.getRole());
-			pstmt.setString(5, vo.getMail());
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		finally {
-			JDBC.close(conn, pstmt);
-		}
+		mybatis.insert("UsersDAO.insersUsers", vo);
+		
 	}
 	
 	public UsersVO getUsers(UsersVO vo) {
-		String sql="select * from users where id=? and pw=?";
-		System.out.println("getUsers() 수행중");
-		UsersVO data=null;
-		conn=JDBC.getConnection();
-		try {
-			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getId());
-			pstmt.setString(2, vo.getPw());
-			ResultSet rs=pstmt.executeQuery();
-			if(rs.next()) {
-				data=new UsersVO();
-				data.setId(rs.getString("id"));
-				data.setPw(rs.getString("pw"));
-				data.setName(rs.getString("name"));
-				data.setRole(rs.getString("role"));
-				data.setMail(rs.getString("mail"));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		finally {
-			JDBC.close(conn, pstmt);
-		}
-		return data;
+		System.out.println("getUsers DAO3 실행중");
+		return (UsersVO)mybatis.selectOne("UsersDAO.getUsers", vo);
 	}
 	
 	
 	public void updateUsers(UsersVO vo) {
-		String sql="update users set name=?, pw=?, mail=? where id=?";
-		System.out.println("updateUsers() 수행중");
-		System.out.println(vo.getName());
-		System.out.println(vo.getMail());
-		System.out.println(vo.getPw());
-		System.out.println(vo.getId());
-		conn=JDBC.getConnection();
-		try {
-			pstmt=conn.prepareStatement(sql);
-			
-			pstmt.setString(1, vo.getName());
-			pstmt.setString(2, vo.getPw());
-			pstmt.setString(3, vo.getMail());
-			pstmt.setString(4, vo.getId());
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		finally {
-			JDBC.close(conn, pstmt);
-		}
+		mybatis.update("UsersDAO.updateUSers", vo);
+		
 	}
 	
 	public void deleteUsers(UsersVO vo) {
-		String sql="delete users where id=?";
-		System.out.println("deleteUsers() 수행중");
-		System.out.println(vo.getId());
-		conn=JDBC.getConnection();
-		try {
-			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getId());
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		finally {
-			JDBC.close(conn, pstmt);
-		}
+		mybatis.delete("UsersDAO.deleteUSers", vo);
 	}
 	
 	//updateMember(),deleteMember()

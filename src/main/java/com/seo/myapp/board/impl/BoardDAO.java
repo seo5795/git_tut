@@ -10,7 +10,7 @@ import com.seo.myapp.board.BoardVO;
 
 @Repository
 public class BoardDAO {
-	
+	//mybatis 사용 BoardDAO
 	@Autowired
 	private  SqlSessionTemplate mybatis;
 	

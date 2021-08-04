@@ -1,6 +1,15 @@
 package com.seo.myapp.users;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="BOARD")
 public class UsersVO {
+	@Id
+	@GeneratedValue
 	private String id;
 	private String pw;
 	private String name;
