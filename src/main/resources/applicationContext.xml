@@ -59,6 +59,18 @@
 		<property name="dataSource" ref="ds" />
 	</bean>
 	
+	<bean class="com.seo.myapp.common.BeforeAdvice" id="beforeClient" />
+	<bean class="com.seo.myapp.common.AfterAdvice" id="dataGood" />
+	<aop:config>
+		<aop:pointcut expression="execution(* com.seo.myapp..*Impl.*(..))" id="allPC"/>
+		<aop:pointcut expression="execution(* com.seo.myapp..*Impl.get*(..))" id="getPC"/>
+		<aop:aspect ref="dataGood">
+			<aop:after method="printLog" pointcut-ref="getPC"/>
+		</aop:aspect>
+		<aop:aspect ref="beforeClient">
+			<aop:before method="printLog" pointcut-ref="allPC"/>
+		</aop:aspect>
+	</aop:config>
 	
 
 </beans>

@@ -15,6 +15,7 @@ public class BoardDAO3 {
 	private EntityManager em;
 
 	public void insertBoard(BoardVO vo) {
+		System.out.println("insertDAO3 시행중");
 		em.persist(vo);
 	}
 	public void updateBoard(BoardVO vo) {

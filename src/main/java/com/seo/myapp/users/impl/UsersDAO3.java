@@ -16,6 +16,7 @@ public class UsersDAO3 {
 	private EntityManager em;
 	
 	public void insertUsers(UsersVO vo) {
+		System.out.println("insertUsers DAO3 수행중");
 		em.persist(vo);
 	}
 	public void updateUsers(UsersVO vo) {
@@ -25,9 +26,9 @@ public class UsersDAO3 {
 		em.remove(vo);
 	}
 	public UsersVO getUsers(UsersVO vo) {
-		String jpql = "select u from Users u where u.id=:id and u.pw=:pw";
+		String jpql = "select u from UsersVO u where u.id = :id and u.pw = :pw";
 		
-		return (UsersVO)em.createQuery("select u from Users u where u.id and u.pw").getResultList();
+		return (UsersVO)em.createQuery(jpql).getResultList();
 	}
 
 }

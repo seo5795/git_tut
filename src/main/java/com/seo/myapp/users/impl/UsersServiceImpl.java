@@ -10,7 +10,7 @@ import com.seo.myapp.users.UsersVO;
 public class UsersServiceImpl implements UsersService{
 
 	@Autowired
-	private UsersDAO usersDAO;
+	private UsersDAO3 usersDAO;
 	
 	@Override
 	public void insertUsers(UsersVO vo) {
