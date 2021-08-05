@@ -1,35 +1,40 @@
-select *from all_all tables;
 
-create table users(
-	id varchar(30) primary key,
-	pw varchar(30),
-	name varchar(30),
-	role varchar(30),
-	mail varchar(100)
+SELECT * FROM ALL_ALL TABLES;
+
+
+CREATE TABLE USERS(
+	ID VARCHAR(30) PRIMARY KEY,
+	PW VARCHAR(30),
+	NAME VARCHAR(30),
+	ROLE VARCHAR(30),
+	MAIL VARCHAR(100)
 );
 
-create table board(
-	bid int primary key,
-	title varchar(50),
-	theme varchar(30),
-	content varchar(100),
-	fileName varchar(50),
-	wdate date default sysdate
+
+CREATE TABLE BOARD(
+	BID INT PRIMARY KEY,
+	TITLE VARCHAR(50),
+	THEME VARCHAR(30),
+	CONTENT VARCHAR(100),
+	FILENAME VARCHAR(50),
+	WDATE DATE DEFAULT SYSDATE
 );
 
-create table reply(
-	pid int primary key,
-	writer varchar(30),
-	rcontent varchar(100),
-	cnt int
+
+CREATE TABLE REPLY(
+	PID INT PRIMARY KEY,
+	WRITER VARCHAR(30),
+	RCONTENT VARCHAR(100),
+	CNT INT
 );
 
-select * from board;
-select * from users;
+SELECT * FROM BOARD;
+SELECT * FROM USERS;
 
-drop table users;
-drop table board;
-drop table reply;
+DROP TABLE USERS;
+DROP TABLE BOARD;
+DROP TABLE REPLY;
 
-insert into BOARD values(1,'12','talk','123','bag','2021-7-28');
-insert into users values('admin','1234','어드민','ADMIN','seo5795@naver.com');
+
+INSERT INTO BOARD VALUES(1,'12','talk','123','bag','2021-7-28');
+INSERT INTO USERS VALUES('admin','1234','어드민','ADMIN','seo5795@naver.com');
