@@ -22,7 +22,9 @@ public class BoardDAO3 {
 		em.merge(vo);
 	}
 	public void deleteBoard(BoardVO vo) {
+		em.find(BoardVO.class, vo.getBid());
 		em.remove(vo);
+		//오류처리필요함
 	}
 	public BoardVO getBoard(BoardVO vo) {
 		return (BoardVO)em.find(BoardVO.class, vo.getBid());

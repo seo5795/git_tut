@@ -7,33 +7,33 @@
 	<select id="getBoard" resultType="board" parameterType="board">
 	<!-- resultset을 자동매핑 하기위해 resultType이용 -->
 	<!-- parameter타입은 인자를 받기위해, 기본적으로vo 설정, 생략가능하다 but resultType은 생략 x -->
-		select * from board where bid=#{bid}
+		SELECT * FROM BOARD WHERE BID=#{bid}
 	</select>
 
 	<select id="getBoardList" resultType="board" parameterType="board">
-		select * from board where 1=1
+		SELECT * FROM BOARD WHERE 1=1
 		<if test="search=='title'">
-			and title like '%'||#{searchContent}||'%'
+			AND TITLE LIKE '%'||#{searchContent}||'%'
 		</if>
 		<if test="search=='content'">
-			and content like '%'||#{searchContent}||'%'
+			AND CONTENT LIKE '%'||#{searchContent}||'%'
 		</if>
 		<if test="search=='theme'">
-			and theme like '%'||#{searchContent}||'%'
+			AND THEME LIKE '%'||#{searchContent}||'%'
 		</if>
-		order by bid desc
+		ORDER BY BID DESC
 	</select>
 
 	<insert id="insertBoard" parameterType="board">
-		insert into board (bid,title,theme,content,fileName) values((select nvl(max(bid),0)+1 from board),#{title},#{theme},#{content},#{fileName})
+		INSERT INTO BOARD (BID,TITLE,THEME,CONTENT,FILENAME) VALUES((select nvl(max(bid),0)+1 from board),#{title},#{theme},#{content},#{fileName})
 	</insert>
 
 	<update id="updateBoard" parameterType="board">
-		update board set title=#{title}, content=#{content} where bid=#{bid}
+		UPDATE BOARD SET TITLE=#{title}, CONTENT=#{content} WHERE BID=#{bid}
 	</update>
 
 	<delete id="deleteBoard" parameterType="board">
-		delete board where bid=#{bid}
+		DELETE BOARD WHERE BID=#{bid}
 	</delete>
 
 </mapper>
