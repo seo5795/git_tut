@@ -21,13 +21,14 @@ public class UsersDAO2 {
 	private JdbcTemplate jdbcTemlplate;
 	
 	public void insertUsers(UsersVO vo) {
-		String sql="insert into users (id,pw,name,role,mail) values(?,?,?,?,?)";
+		String sql="INSERT INTO USERS (ID,PW,NAME,ROLE,MAIL) VALUES(?,?,?,?,?)";
+		
 		System.out.println("insertUsers() 수행중");
 		jdbcTemlplate.update(sql, vo.getId(),vo.getPw(),vo.getName(),vo.getRole(),vo.getMail());
 	}
 	
 	public UsersVO getUsers(UsersVO vo) {
-		String sql="select * from users where id=? and pw=?";
+		String sql="SELECT * FROM USERS WHERE ID=? AND PW=?";
 		System.out.println("getUsers() 수행중");
 		Object[] args= {vo.getId(),vo.getPw()};
 		return jdbcTemlplate.queryForObject(sql, args,new UserRowMapper());
@@ -35,14 +36,16 @@ public class UsersDAO2 {
 	
 	
 	public void updateUsers(UsersVO vo) {
-		String sql="update users set name=?, pw=?, mail=? where id=?";
+		String sql="UPDATE USERS SET NAME=?, PW=?, MAIL=? WHERE ID=?";
+		
 		System.out.println("updateUsers() 수행중");
 		jdbcTemlplate.update(sql, vo.getName(),vo.getPw(),vo.getMail(),vo.getId());
 		
 	}
 	
 	public void deleteUsers(UsersVO vo) {
-		String sql="delete from users where id=?";
+		String sql="DELETE FROM USERS WHERE ID=?";
+		
 		System.out.println("deleteUsers() 수행중");
 		jdbcTemlplate.update(sql, vo.getId());
 	}
