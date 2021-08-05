@@ -19,26 +19,30 @@ public class BoardDAO2 {
 	private JdbcTemplate jdbcTemplate;
 
 	public void insertBoard(BoardVO vo) {
-		String sql="insert into board (bid,title,theme,content,fileName) values((select nvl(max(bid),0)+1 from board),?,?,?,?)";
+		String sql="INSERT INTO BOARD (BID,TITLE,THEME,CONTENT,FILENAME) VALUES((select nvl(max(bid),0)+1 from board),?,?,?,?)";
+		
 
 		System.out.println("insertBoard() 수행중2");
 		jdbcTemplate.update(sql,vo.getTitle(),vo.getTheme(),vo.getContent(),vo.getFileName());
 	}
 	
 	public void updateBoard(BoardVO vo) {
-		String sql="update board set title=?, content=? where bid=?";
+		String sql="UPDATE BOARD SET TITLE=?, CONTENT=? WHERE BID=?";
+		
 		System.out.println("updateBoard() 수행중2");
 		jdbcTemplate.update(sql, vo.getTitle(),vo.getContent(),vo.getBid());
 	}
 	
 	public void deleteBoard(BoardVO vo) {
-		String sql="delete board where bid=?";
+		String sql="DELETE BOARD WHERE BID=?";
+		
 		System.out.println("deleteBoard() 수행중2");
 		jdbcTemplate.update(sql, vo.getBid());
 	}
 	
 	public BoardVO getBoard(BoardVO vo) {
-		String sql="select * from board where bid=?";
+		String sql="SELECT * FROM BOARD WHERE BID=?";
+		
 		System.out.println("getBoard() 수행중2");
 		BoardVO data=null;
 		Object[] args= {vo.getBid()};
@@ -46,9 +50,10 @@ public class BoardDAO2 {
 	}
 	
 	public List<BoardVO> getBoardList(BoardVO vo) {
-		String sql="select * from board where title like '%'||?||'%' order by bid desc";
-		String sql2="select * from board where content like '%'||?||'%' order by bid desc";
-		String sql3="select * from board where theme like '%'||?||'%' order by bid desc";
+		String sql="SELECT * FROM BOARD WHERE TITLE LIKE '%'||?||'%' ORDER BY BID DESC";
+		
+		String sql2="SELECT * FROM BOARD WHERE CONTENT LIKE '%'||?||'%' ORDER BY BID DESC";
+		String sql3="SELECT * FROM BOARD WHERE THEME LIKE '%'||?||'%' ORDER BY BID DESC";
 		System.out.println("getBoardList() 수행중2!");
 		System.out.println(vo.getSearchContent()+"=내용");
 		System.out.println(vo.getSearch());
