@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="custom"%>
 <!DOCTYPE HTML>
 <!--
@@ -33,29 +34,44 @@
 				<!-- Form -->
 				<section>
 					<h2>Form</h2>
-					<form method="post" action="insertBoard.do" enctype="multipart/form-data">
+					<form method="post" action="insertBoard.do"
+						enctype="multipart/form-data">
 						<div class="row gtr-uniform">
 							<div class="col-12">
 								<input type="text" name="title" placeholder="Title" />
 							</div>
+							<c:choose>
+								<c:when test="${ vvv.role eq 'admin' }">
+									<div class="col-12">
+										<select name="theme">
+											<option value="">- Category -</option>
+											<option value="자유게시판">자유게시판</option>
+											<option value="구인구직">구인구직</option>
+											<option value="취업정보">취업정보</option>
+											<option value="공지사항">공지사항</option>
+										</select>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div class="col-12">
+										<select name="theme">
+											<option value="">- Category -</option>
+											<option value="자유게시판">자유게시판</option>
+											<option value="구인구직">구인구직</option>
+											<option value="취업정보">취업정보</option>
+										</select>
+									</div>
+								</c:otherwise>
+							</c:choose>
 
-							<div class="col-12">
-								<select name="theme">
-									<option value="">- Category -</option>
-									<option value="talk">Talk</option>
-									<option value="debate">Debate</option>
-									<option value="question">Question</option>
-									<option value="humanResource">Human Resources</option>
-								</select>
-							</div>
 
 							<div class="col-12">
 								<textarea name="content" placeholder="Enter your message"
 									rows="6"></textarea>
 							</div>
 							<div class="col-12">
-								파일 업로드 &nbsp; &nbsp;&nbsp; &nbsp;
-								<input type="file" name="uploadFile">
+								파일 업로드 &nbsp; &nbsp;&nbsp; &nbsp; <input type="file"
+									name="uploadFile">
 							</div>
 							<div class="col-12">
 								<ul class="actions">

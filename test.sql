@@ -37,4 +37,4 @@ DROP TABLE REPLY;
 
 
 INSERT INTO BOARD VALUES(1,'12','talk','123','bag','2021-7-28');
-INSERT INTO USERS VALUES('admin','1234','어드민','ADMIN','seo5795@naver.com');
+INSERT INTO USERS VALUES('admin','1234','어드민','admin','seo5795@naver.com');

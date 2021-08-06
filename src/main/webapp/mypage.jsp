@@ -36,7 +36,7 @@
 										<input type="hidden" name="id" value="${vvv.id}">
 											<div class="row gtr-uniform">
 												<div class="col-12">
-													${vvv.id}
+													<input type="text" name="id" value="${vvv.id}" disabled/>
 												</div>
 												
 												<div class="col-12">
@@ -49,7 +49,7 @@
 													<input type="text" name="mail" value="${vvv.mail}"  />
 												</div>
 												<div class="col-12">
-													${vvv.role}
+													<input type="text" name="role" value="${vvv.role}" disabled  />
 												</div>
 												<div class="col-12">
 													<ul class="actions">

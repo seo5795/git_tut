@@ -78,7 +78,7 @@ public class UserController {
 		
 		usersService.deleteUsers(vo);
 		
-		return "login.jsp";
+		return "logout.do";
 	}
 	
 }

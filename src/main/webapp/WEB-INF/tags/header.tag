@@ -4,7 +4,7 @@
 <!-- Header -->
 		<header id="header" class="alt">
 			<span class="logo"><a href="index.jsp"><img src="images/logo.svg" alt="" /></a></span>
-			<h1>Job planet</h1>
+			<h1>Job Planet</h1>
 			<c:choose>
 			<c:when test="${ vvv == null }">
 				<p>환영합니다!</p>

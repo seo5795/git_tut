@@ -59,6 +59,7 @@
 								<tr>
 									<th>Number</th>
 									<th>Title</th>
+									<th>Theme</th>
 									<th>Date</th>
 								</tr>
 							</thead>
