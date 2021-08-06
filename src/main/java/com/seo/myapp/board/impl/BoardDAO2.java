@@ -73,7 +73,6 @@ public class BoardDAO2 {
 }
 
 class BoardRowMapper implements RowMapper{
-	
 
 	@Override
 	public BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
