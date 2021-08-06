@@ -23,7 +23,7 @@
 
 	<!-- Wrapper -->
 	<div id="wrapper">
-		<custom:head />
+		<custom:header />
 		<!-- Main -->
 		<div id="main">
 

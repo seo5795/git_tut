@@ -3,14 +3,14 @@
 
 <!-- Header -->
 		<header id="header" class="alt">
-			<span class="logo"><img src="images/logo.svg" alt="" /></span>
-			<h1>Title</h1>
+			<span class="logo"><a href="index.jsp"><img src="images/logo.svg" alt="" /></a></span>
+			<h1>Job planet</h1>
 			<c:choose>
 			<c:when test="${ vvv == null }">
-				<p>Welcome!</p>
+				<p>환영합니다!</p>
 			</c:when>
 			<c:otherwise>
-				<p>Welcome ${vvv.name}!</p>
+				<p>환영합니다 ${vvv.name}!</p>
 			</c:otherwise>
 		</c:choose>
 		</header>
