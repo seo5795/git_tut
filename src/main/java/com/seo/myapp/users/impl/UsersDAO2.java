@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -32,6 +33,13 @@ public class UsersDAO2 {
 		System.out.println("getUsers() 수행중");
 		Object[] args= {vo.getId(),vo.getPw()};
 		return jdbcTemlplate.queryForObject(sql, args,new UserRowMapper());
+	}
+	
+	public List<UsersVO> findId(UsersVO vo) {
+		String sql="SELECT * FROM USERS WHERE NAME=? AND MAIL=?";
+		System.out.println("findUsers() 메서드 수행중");
+		Object[] args = {vo.getName(),vo.getMail()};
+		return jdbcTemlplate.query(sql, args, new UserRowMapper());
 	}
 	
 	

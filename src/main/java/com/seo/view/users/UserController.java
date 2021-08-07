@@ -1,9 +1,12 @@
 package com.seo.view.users;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -79,6 +82,18 @@ public class UserController {
 		usersService.deleteUsers(vo);
 		
 		return "logout.do";
+	}
+	
+	@RequestMapping("findId.do")
+	public String findId(UsersVO vo, Model m) {
+		System.out.println("id찾기 컨트롤러");
+		
+		UsersVO usersList=usersService.findId(vo);
+	
+		System.out.println("id찾기 컨트롤러 끝");
+		m.addAttribute("v",usersList);
+		
+		return  "findAccount.jsp";
 	}
 	
 }

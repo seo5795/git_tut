@@ -36,6 +36,12 @@ public class UsersServiceImpl implements UsersService{
 		usersDAO.deleteUsers(vo);
 	}
 
+	@Override
+	public UsersVO findId(UsersVO vo) {
+		// TODO Auto-generated method stub
+		return usersDAO.findId(vo);
+	}
+
 
 	
 }

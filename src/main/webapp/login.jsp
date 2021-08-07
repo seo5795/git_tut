@@ -79,7 +79,7 @@
 
 						<ul class="actions">
 							<li><a href="insertUsers.jsp" class="button">회원가입</a></li>
-							<li><a href="generic.html" class="button">아이디/비밀번호 찾기</a></li>
+							<li><a href="findAccount.jsp" class="button">아이디/비밀번호 찾기</a></li>
 						</ul>
 					</div>
 					<span class="image"><img src="images/pic01.jpg" alt="" /></span>
