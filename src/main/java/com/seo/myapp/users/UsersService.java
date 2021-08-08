@@ -1,12 +1,15 @@
 package com.seo.myapp.users;
 
+import java.util.List;
+
 public interface UsersService {
-	void insertUsers(UsersVO vo);
-	void updateUsers(UsersVO vo);
+	public void insertUsers(UsersVO vo);
+	public void updateUsers(UsersVO vo);
 	
-	void deleteUsers(UsersVO vo);
-	UsersVO findId(UsersVO vo);
-	UsersVO getUsers(UsersVO vo);
+	public void deleteUsers(UsersVO vo);
+	public UsersVO findId(UsersVO vo);
+	public UsersVO getUsers(UsersVO vo);
+	public UsersVO findPw(UsersVO vo);
 	
 	
 }	

@@ -24,7 +24,7 @@ public class UserController {
 	@RequestMapping(value="/login.do",method=RequestMethod.POST)
 	public String login(UsersVO vo,HttpSession session) {
 		System.out.println("로그인 컨트롤러");
-		
+		System.out.println(vo.getId());
 		if(vo.getId()==null || vo.getId().equals("")) {
 			throw new IllegalArgumentException("아이디가 입력되지않았습니다.");
 		}
@@ -51,7 +51,7 @@ public class UserController {
 		return "login.jsp";
 	}
 	
-	@RequestMapping("logout.do")
+	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		System.out.println("로그아웃 컨트롤러");
 		
@@ -59,7 +59,7 @@ public class UserController {
 		
 		return "login.jsp";
 	}
-	@RequestMapping("updateUsers.do")
+	@RequestMapping("/updateUsers.do")
 	public String update(UsersVO vo) {
 		System.out.println("업데이트 users 컨트롤러");
 		
@@ -75,7 +75,7 @@ public class UserController {
 	      return "login.jsp";
 	
 	}
-	@RequestMapping("deleteUsers.do")
+	@RequestMapping("/deleteUsers.do")
 	public String delete(UsersVO vo) {
 		System.out.println("회원탈퇴 컨트롤러");
 		
@@ -84,16 +84,28 @@ public class UserController {
 		return "logout.do";
 	}
 	
-	@RequestMapping("findId.do")
+	@RequestMapping("/findId.do")
 	public String findId(UsersVO vo, Model m) {
 		System.out.println("id찾기 컨트롤러");
-		
-		UsersVO usersList=usersService.findId(vo);
+		System.out.println(vo.getMail());
+		UsersVO users=usersService.findId(vo);
 	
 		System.out.println("id찾기 컨트롤러 끝");
-		m.addAttribute("v",usersList);
 		
-		return  "findAccount.jsp";
+		m.addAttribute("users",users);
+		
+		return  "findid.jsp";
+	}
+	
+	@RequestMapping("/findPw.do")
+	public String findPw(UsersVO vo, Model m){
+		System.out.println("pw찾기 컨트롤러");
+		System.out.println(vo.getId());
+		UsersVO users=usersService.findPw(vo);
+		
+		m.addAttribute("users",users);
+		
+		return "findAccount.jsp";
 	}
 	
 }

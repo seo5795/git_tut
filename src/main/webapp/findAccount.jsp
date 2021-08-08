@@ -40,9 +40,8 @@
 						<span>이름</span><input type="text" id="name"> <br> <span>이메일</span><input
 							type="text" id="mail"> <input type="submit" value="id찾기">
 					</form>
-					<c:if test="${v.id != null}">
-						<p>회원님의 아이디는 ${v.id}입니다</p>
-					</c:if>
+				
+					
 					<br>
 					<hr>
 					<br>

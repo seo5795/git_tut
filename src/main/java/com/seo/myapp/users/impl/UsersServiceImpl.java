@@ -1,5 +1,7 @@
 package com.seo.myapp.users.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +42,12 @@ public class UsersServiceImpl implements UsersService{
 	public UsersVO findId(UsersVO vo) {
 		// TODO Auto-generated method stub
 		return usersDAO.findId(vo);
+	}
+
+	@Override
+	public UsersVO findPw(UsersVO vo) {
+		// TODO Auto-generated method stub
+		return usersDAO.findPw(vo);
 	}
 
 
