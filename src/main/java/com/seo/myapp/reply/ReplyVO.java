@@ -2,7 +2,6 @@ package com.seo.myapp.reply;
 
 public class ReplyVO {
 	private int pid;
-	private String writer;
 	private String rcontent;
 	private int cnt;
 	public int getPid() {
@@ -10,12 +9,6 @@ public class ReplyVO {
 	}
 	public void setPid(int pid) {
 		this.pid = pid;
-	}
-	public String getWriter() {
-		return writer;
-	}
-	public void setWriter(String writer) {
-		this.writer = writer;
 	}
 	public String getRcontent() {
 		return rcontent;

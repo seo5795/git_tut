@@ -57,19 +57,28 @@
 					<pre>
 						<code>${v.content}</code>
 					</pre>
-					<a href="#"><img src="${seo}" alt="파일업로드"></a>
+					<!-- <a href="#"><img src="${seo}" alt="파일업로드"></a>  -->
 
-					<p>
+					<p style="text-align:right">
 						<a href="getBoardList.do">목록</a>&nbsp; &nbsp; <a
 							href="updateBoardPage.do?bid=${v.bid }">수정하기</a>
 						<c:choose>
 							<c:when test="${ vvv.role eq 'admin' }">
-								&nbsp; &nbsp;<a
-								href="deleteBoard.do?bid=${v.bid}">삭제</a>
+								&nbsp; &nbsp;<a href="deleteBoard.do?bid=${v.bid}">삭제</a>
 							</c:when>
 						</c:choose>
 					</p>
 
+					<form method="post" action="newReply.do">
+					<input type="hidden" name="cnt" value=0>
+						<textarea name="rcontent" 
+							cols="114" rows="2" placeholder="댓글을 입력해 주세요"
+							style="resize: none"></textarea>
+						<p class="btn_line txt_right">
+							<input type="submit" value="작성" 
+								style="border: none;">
+						</p>
+					</form>
 				</div>
 
 
