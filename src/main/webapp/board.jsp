@@ -62,6 +62,12 @@
 					<p>
 						<a href="getBoardList.do">목록</a>&nbsp; &nbsp; <a
 							href="updateBoardPage.do?bid=${v.bid }">수정하기</a>
+						<c:choose>
+							<c:when test="${ vvv.role eq 'admin' }">
+								&nbsp; &nbsp;<a
+								href="deleteBoard.do?bid=${v.bid}">삭제</a>
+							</c:when>
+						</c:choose>
 					</p>
 
 				</div>

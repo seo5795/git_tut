@@ -47,17 +47,18 @@
 								<td>${v.wdate}</td>
 							</tr>
 
-							<tr>
-								<td bgcolor="lightblue">상세 내용</td>
-								<td><input type="text" name="content" value="${v.content}"></td>
-							</tr>
-							<tr>
-								<td colspan="2"><input type="submit" value="수정" /></td>
-							</tr>
 						</table>
+						<h3>글 내용</h3>
+						<pre>
+						<code>
+								<input type="text" name="content" value="${v.content}">
+							</code>
+					</pre>
+
 						<p>
-							<a href="getBoardList.do">목록</a>&nbsp; &nbsp; <a
-								href="deleteBoard.do?bid=${v.bid}">삭제</a>&nbsp;
+
+							<input type="submit" value="수정" />&nbsp; &nbsp; &nbsp; <a
+								href="getBoardList.do">목록</a>&nbsp; &nbsp; &nbsp;
 						</p>
 
 					</div>
