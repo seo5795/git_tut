@@ -37,20 +37,28 @@
 					<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
 					<h2>아이디 찾기</h2>
 					<form action="findId.do" method="post">
-						<span>이름</span><input type="text" id="name"> <br> <span>이메일</span><input
-							type="text" id="mail"> <input type="submit" value="id찾기">
+						<span>이름</span><input type="text" id="name" name="name"> <br> <span>이메일</span><input
+							type="text" id="mail" name="mail"> <input type="submit" value="id찾기">
 					</form>
-				
+						<c:forEach var="v" items="${users}">
+						<tr>
+						<td>회원님의 id는 ${v.id}입니다.</td>
+						</c:forEach>
+					
 					
 					<br>
 					<hr>
 					<br>
 					<h2>비밀번호찾기</h2>
 					<form action="findPw.do" method="post">
-						<span>ID입력</span><input type="text" id="id"> <span>이메일</span><input
-							type="text" id="mail"> <input type="submit" value="pw찾기">
+						<span>ID입력</span><input type="text" id="id" name="id"> <span>이메일</span><input
+							type="text" id="mail" name="mail"> <input type="submit" value="pw찾기">
 						<br>
 					</form>
+					<c:forEach var="v" items="${userpw}">
+						<tr>
+						<td>회원님의 비밀번호는 ${v.pw}입니다.</td>
+						</c:forEach>
 					<div id="ans"></div>
 
 

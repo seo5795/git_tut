@@ -91,23 +91,23 @@ public class UserController {
 	@RequestMapping("/findId.do")
 	public String findId(UsersVO vo, Model m) {
 		System.out.println("id찾기 컨트롤러");
-		System.out.println(vo.getMail());
+		System.out.println(vo.getMail()+m);
 		List<UsersVO> users=usersService.findId(vo);
 	
 		System.out.println("id찾기 컨트롤러 끝");
 		
 		m.addAttribute("users",users);
 		
-		return  "findid.jsp";
+		return  "findAccount.jsp";
 	}
 	
 	@RequestMapping("/findPw.do")
 	public String findPw(UsersVO vo, Model m){
 		System.out.println("pw찾기 컨트롤러");
 		System.out.println(vo.getId());
-		UsersVO users=usersService.findPw(vo);
+		List<UsersVO> userpw=usersService.findPw(vo);
 		
-		m.addAttribute("users",users);
+		m.addAttribute("userpw",userpw);
 		
 		return "findAccount.jsp";
 	}

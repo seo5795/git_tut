@@ -9,7 +9,7 @@ public interface UsersService {
 	public void deleteUsers(UsersVO vo);
 	public List<UsersVO> findId(UsersVO vo);
 	public UsersVO getUsers(UsersVO vo);
-	public UsersVO findPw(UsersVO vo);
+	public List<UsersVO> findPw(UsersVO vo);
 	
 	
 }	

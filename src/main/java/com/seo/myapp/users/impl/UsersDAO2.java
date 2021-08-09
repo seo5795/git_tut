@@ -31,7 +31,7 @@ public class UsersDAO2 {
 	public UsersVO getUsers(UsersVO vo) {
 		String sql="SELECT * FROM USERS WHERE ID=? AND PW=?";
 		System.out.println("getUsers() 수행중");
-		System.out.println(vo.getId()+vo.getPw()+"dasf");
+		System.out.println(vo.getId()+" "+vo.getPw());
 		Object[] args= {vo.getId(),vo.getPw()};
 		return jdbcTemlplate.queryForObject(sql, args, new UserRowMapper());
 	}
@@ -41,6 +41,16 @@ public class UsersDAO2 {
 		System.out.println("findUsers() 메서드 수행중");
 		System.out.println(vo.getName()+vo.getMail()+"dasf");
 		Object[] args = {vo.getName(),vo.getMail()};
+		return jdbcTemlplate.query(sql, args, new UserRowMapper());
+	}
+	
+	
+	public List<UsersVO> findPw(UsersVO vo) {
+		String sql="SELECT *FROM USERS WHERE ID=? AND MAIL=?";
+		System.out.println("findPw()메서드 수행중");
+		System.out.println(vo.getId()+" "+vo.getMail());
+		
+		Object[] args = {vo.getId(),vo.getMail()};
 		return jdbcTemlplate.query(sql, args, new UserRowMapper());
 	}
 	
@@ -59,16 +69,6 @@ public class UsersDAO2 {
 		System.out.println("deleteUsers() 수행중");
 		jdbcTemlplate.update(sql, vo.getId());
 	}
-	
-	public UsersVO findPw(UsersVO vo) {
-		String sql="SELECT *FROM USERS WHERE ID=? AND MAIL=?";
-		System.out.println("findPw()메서드 수행중");
-		System.out.println(vo.getId()+" "+vo.getMail());
-		
-		Object[] args = {vo.getId(),vo.getMail()};
-		return jdbcTemlplate.queryForObject(sql, args, new UserRowMapper());
-	}
-	//updateMember(),deleteMember()
 }
 
 class UserRowMapper implements RowMapper{

@@ -45,7 +45,7 @@ public class UsersServiceImpl implements UsersService{
 	}
 
 	@Override
-	public UsersVO findPw(UsersVO vo) {
+	public List<UsersVO> findPw(UsersVO vo) {
 		// TODO Auto-generated method stub
 		return usersDAO.findPw(vo);
 	}
