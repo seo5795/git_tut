@@ -39,7 +39,7 @@ public class UsersServiceImpl implements UsersService{
 	}
 
 	@Override
-	public UsersVO findId(UsersVO vo) {
+	public List<UsersVO> findId(UsersVO vo) {
 		// TODO Auto-generated method stub
 		return usersDAO.findId(vo);
 	}

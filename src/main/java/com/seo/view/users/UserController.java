@@ -21,8 +21,12 @@ public class UserController {
 	private UsersService usersService;
 	//비즈니스 컴포넌트, dao바꾸기 용이해짐
 	
+	
 	@RequestMapping(value="/login.do",method=RequestMethod.POST)
+	//handlerMapping역활
+	//사용자 요청에 따른 컨트롤러 메서드 생성
 	public String login(UsersVO vo,HttpSession session) {
+		//command객체를 통한 setter, mapping
 		System.out.println("로그인 컨트롤러");
 		System.out.println(vo.getId());
 		if(vo.getId()==null || vo.getId().equals("")) {
@@ -88,7 +92,7 @@ public class UserController {
 	public String findId(UsersVO vo, Model m) {
 		System.out.println("id찾기 컨트롤러");
 		System.out.println(vo.getMail());
-		UsersVO users=usersService.findId(vo);
+		List<UsersVO> users=usersService.findId(vo);
 	
 		System.out.println("id찾기 컨트롤러 끝");
 		

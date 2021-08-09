@@ -36,12 +36,12 @@ public class UsersDAO2 {
 		return jdbcTemlplate.queryForObject(sql, args, new UserRowMapper());
 	}
 	
-	public UsersVO findId(UsersVO vo) {
+	public List<UsersVO> findId(UsersVO vo) {
 		String sql="SELECT * FROM USERS WHERE NAME=? AND MAIL=?";
 		System.out.println("findUsers() 메서드 수행중");
 		System.out.println(vo.getName()+vo.getMail()+"dasf");
 		Object[] args = {vo.getName(),vo.getMail()};
-		return jdbcTemlplate.queryForObject(sql, args, new UserRowMapper());
+		return jdbcTemlplate.query(sql, args, new UserRowMapper());
 	}
 	
 	
